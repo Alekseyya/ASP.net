@@ -9,44 +9,11 @@ namespace WebStore.Controllers
 {
     public class HomeController : Controller
     {
-        public List<Employee> employees = new List<Employee>
-            {
-                new Employee
-                {
-                    id=1,
-                    FirstName = "Алексей",
-                    LastName = "Генычув",
-                    Partonymic = "Григорьев",
-                    Age = 23,
-                    Position = "Генерал иракской разведки",
-                    DateofBirth = new DateTime(2000, 3, 15)
-                    
-                },
-                new Employee
-                {
-                    id = 2,
-                    FirstName = "Афанасий",
-                    LastName = "Батькович",
-                    Partonymic = "Алексеев",
-                    Age = 28,
-                    Position = "Старший прапорщик",
-                    DateofBirth = new DateTime(1998, 4, 15)
-                },
-                new Employee
-                {
-                    id = 3,
-                    FirstName = "Мария",
-                    LastName = "Конь",
-                    Partonymic = "Беловна",
-                    Age = 27,
-                    Position = "Повар",
-                    DateofBirth = new DateTime(1665, 9, 18)
-                }
-            };
+        
         // GET: Home
         public ActionResult Index()
-        {            
-            return View(employees);
+        {                      
+            return View(db.employees);
         }
         
         public ActionResult Result(int id)
@@ -60,7 +27,7 @@ namespace WebStore.Controllers
         }
         public Employee FindEmployee(int id)
         {
-            foreach (var employee in employees)
+            foreach (var employee in db.employees)
             {
                 if (employee.id == id)
                 {
@@ -69,6 +36,7 @@ namespace WebStore.Controllers
             }
             return null;
         }
+
         [HttpGet]
         public ActionResult EditEmployee(int? id)
         {
@@ -93,6 +61,7 @@ namespace WebStore.Controllers
             foundPerson.FirstName = emp.FirstName;
             foundPerson.LastName = emp.LastName;
             foundPerson.Age = emp.Age;
+            
             return RedirectToAction("Index");
         }
 
