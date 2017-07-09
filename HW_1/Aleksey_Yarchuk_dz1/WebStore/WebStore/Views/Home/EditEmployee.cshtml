@@ -1,0 +1,30 @@
+﻿@model WebStore.Models.Employee
+@{
+    ViewBag.Title = "EditEmployee";
+}
+
+<h2>Сотрудник @Model.id</h2>
+@using (Html.BeginForm("EditEmployee", "Home", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.id)
+        <p>
+            @Html.LabelFor(m => m.FirstName, "Имя")
+            <br />
+            @Html.EditorFor(m => m.FirstName)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.LastName, "Фамилия")
+            <br />
+            @Html.EditorFor(m => m.LastName)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Age, "Возраст")
+            <br />
+            @Html.EditorFor(m => m.Age)
+        </p>
+        <p><input type="submit" value="Отправить" /></p>
+    </fieldset>
+}
+ 

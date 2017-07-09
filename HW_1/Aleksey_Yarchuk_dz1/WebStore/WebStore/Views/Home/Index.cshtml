@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebStore.Models.Employee>
+
+@{
+    ViewBag.Title = "Главная страница";
+}
+
+
+<table class="table table-striped">
+    <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Отчество</th>
+        <th>Должность</th>
+        <th>Возраст</th>
+    </tr>
+
+    @foreach (var employee in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(@employee.FirstName, "Result", new { @employee.id },null)
+            </td>
+            <td>
+               @employee.FirstName
+            </td>
+            <td>
+                @employee.LastName
+            </td>
+            <td>
+                @employee.Partonymic
+            </td>
+            <td>
+                @employee.Position
+            </td>
+            <td>
+                @employee.Age
+            </td>
+            <td>@Html.ActionLink("Редактирование","EditEmployee", new { @employee.id })</td>
+        </tr>
+    }
+</table>
