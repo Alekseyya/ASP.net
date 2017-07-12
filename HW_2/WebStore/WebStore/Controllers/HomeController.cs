@@ -31,7 +31,7 @@ namespace WebStore.Controllers
         {
             if (id == null)
             {
-                return View("EditEmployee");
+                return View();
             }
             var employee = db.GetById((int)id);
             if (employee == null)

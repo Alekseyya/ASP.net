@@ -34,7 +34,8 @@ namespace WebStore.Models
         public string Position { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Дата рождения является обязательной")]
-        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "dd/MM/yyyy", ConvertEmptyStringToNull = true)]
         [Display(Name="Дата рождения")]
         public DateTime DateofBirth { get; set; }
