@@ -1,0 +1,17 @@
+﻿@model WebStore.Models.Employee
+@{
+    ViewBag.Title = "Result";
+}
+
+<a href="@Url.Action("Index", "Home")">Домой</a> 
+
+<ul>
+    <li>
+        @Model.FirstName    
+    </li>
+    <li>
+        @Model.DateofBirth
+    </li>
+</ul>
+
+
