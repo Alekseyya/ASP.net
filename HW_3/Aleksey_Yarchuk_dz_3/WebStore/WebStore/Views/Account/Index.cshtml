@@ -1,5 +1,6 @@
 ﻿@model WebStore.Models.AccountView
 
+
 @{
     ViewBag.Title = "Index";
 }
@@ -11,4 +12,4 @@
     <li>@Model.Role</li>
 </ul>
 
-
+@Html.Action("AdditionalInformation")

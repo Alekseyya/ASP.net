@@ -15,10 +15,12 @@ namespace WebStore.Models
     }
     public class RegisterViewModel
     {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Поле обязательно для заполнения")]
         [Display(Name = "Имя")]
         [StringLength(15, ErrorMessage = "Имя не должна привышать 15 символов")]
         public string FirsName { get; set; }
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Поле обязательно для заполнения")]
         [Display(Name = "Фамилия")]
         [StringLength(25, ErrorMessage = "Фамилия не должна привышать 25 символов")]
         public string LastName { get; set; }
@@ -27,14 +29,32 @@ namespace WebStore.Models
         [StringLength(25, ErrorMessage = "Отвество не должна привышать 25 символов")]
         public string Partonymic { get; set; }
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Поле обязательно для заполнения")]
         [Display(Name = "Логин")]
         [RegularExpression(@"[a-z]{2,10}", ErrorMessage = "Логин должен состоять из матленьких букв латинского алфавита до 10 символов")]
         public string Login { get; set; }
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Поле обязательно для заполнения")]
         [Display(Name = "Пароль")]
         [StringLength(25, ErrorMessage = "Ограничение в 25 символов")]
         [RegularExpression(@"[a-z,1-9]{2,25}", ErrorMessage = "Пароль должен состоять из букв и цифр")]
         public string Password { get; set; }
+    }
+
+    public class AdditionalInformation
+    {
+        [Display(Name ="Возраст")]
+        [Range(18,99)]
+        public string Age { get; set; }
+
+        [Display(Name ="Должность")]
+        [StringLength(45, ErrorMessage ="Максимальная длина должна не привышать 25 символов")]
+        public string Position { get; set; }
+
+        [Display(Name ="День рождения")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yy}")]
+        public string DateofBirth { get; set; }
     }
 
     public class LoginViewModel

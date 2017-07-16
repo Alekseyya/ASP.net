@@ -22,7 +22,14 @@ namespace WebStore.Controllers
                 Partonymic = employee.Partonymic,
                 Role = userLogin
             };
+            ViewBag.AddInfo = new AdditionalInformation();
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult AdditionalInformation()
+        {
+            return View();
         }
 
         [HttpGet]
@@ -42,7 +49,7 @@ namespace WebStore.Controllers
                     return View(lvm);
                 }
                 FormsAuthentication.SetAuthCookie(lvm.Login, true);
-                if (User.Identity.Name == "admin")
+                if (lvm.Login == "admin")
                     return RedirectToAction("Index", "Home");
                 else
                     return RedirectToAction("List", "Home");
@@ -76,24 +83,31 @@ namespace WebStore.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Register(RegisterViewModel rvm)
         {
-            var modelEmployee = new Employee
+            if (ModelState.IsValid)
             {
-                FirstName = rvm.FirsName,
-                LastName= rvm.LastName,
-                Partonymic = rvm.Partonymic
-            };
-            var modelUser = new User
-            {
-                Login = rvm.Login,
-                Password = rvm.Password
-            };
+                var modelEmployee = new Employee
+                {
+                    FirstName = rvm.FirsName,
+                    LastName = rvm.LastName,
+                    Partonymic = rvm.Partonymic
+                };
+                var modelUser = new User
+                {
+                    Login = rvm.Login,
+                    Password = rvm.Password
+                };
 
-            db.Add(modelEmployee);
-            db.AddUsers(modelUser);
+                db.Add(modelEmployee);
+                db.AddUsers(modelUser);
 
-            return Redirect("/Home/List");
+                FormsAuthentication.SetAuthCookie(rvm.Login, true);
+
+                return Redirect("/Home/List");
+            }
+            return View(rvm);            
         }
     }
 }
