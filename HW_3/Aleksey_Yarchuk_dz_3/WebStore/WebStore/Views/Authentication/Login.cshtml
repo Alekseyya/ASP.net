@@ -1,0 +1,43 @@
+﻿@model WebStore.Models.AuthentificationParams
+
+@{
+    Layout = null;
+}
+<div style="text-align: center">
+    <span>
+        Форма авторизации
+    </span>
+</div>
+@using (Html.BeginForm("Login", "Authentication", FormMethod.Post))
+{
+    <div>
+        <table>
+            <tr>
+                <td>
+                    @Html.LabelFor(x => x.Login)
+                </td>
+                <td>
+                    @Html.EditorFor(x => x.Login)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(x => x.Password)
+                </td>
+                <td>
+                    @Html.PasswordFor(x => x.Password)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Войти" />
+                </td>
+            </tr>
+        </table>
+        <div>
+            @Html.DisplayFor(x => x.ErrorMessage)
+        </div>
+    </div>
+}
+
+
