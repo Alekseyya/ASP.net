@@ -1,0 +1,15 @@
+﻿@model WebStore.Models.AccountView
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<ul>
+    <li>@Model.FirstName</li>
+    <li>@Model.LastName</li>
+    <li>@Model.Partonymic</li>
+    <li>@Model.Role</li>
+</ul>
+
+@Html.Action("AdditionalInformation")
