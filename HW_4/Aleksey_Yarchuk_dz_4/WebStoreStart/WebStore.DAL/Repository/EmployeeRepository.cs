@@ -108,9 +108,9 @@ namespace WebStore.DAL.Repository
                          
         }
 
-        public string GetPosition(int id)
+        public Position GetPosition(int id)
         {
-            return db.Positions.FirstOrDefault(i => i.Id == id).Name;
+            return db.Positions.FirstOrDefault(i => i.Id == id);
         }
 
         public int GetPositionIdForPositionName(string name)

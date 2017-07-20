@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebStore.DAL.Repository;
 using WebStore.Models;
 
 namespace WebStore.Controllers
 {
     public class MyAuthorizeAttribute : AuthorizeAttribute
     {
+
         private string[] allowedUsers = new string[] { };
         private string[] allowedRoles = new string[] { };
 
+        UserRepository userRepo;
         public MyAuthorizeAttribute()
-        { }
+        { this.userRepo = new UserRepository(); }
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
@@ -54,7 +57,9 @@ namespace WebStore.Controllers
             {
                 for (int i = 0; i < allowedRoles.Length; i++)
                 {
-                    if (db.users.Any(user=>user.Login == httpContext.User.Identity.Name && user.Role == allowedRoles[i]))
+                    var userId = userRepo.SearchByLogin(httpContext.User.Identity.Name).Id;
+                    var userRole = this.userRepo.GetRole(userId).Name;
+                    if (userRole == allowedRoles[i])
                         return true;
                 }
                 return false;

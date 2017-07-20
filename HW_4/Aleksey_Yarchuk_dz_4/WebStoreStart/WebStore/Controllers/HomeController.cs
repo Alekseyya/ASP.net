@@ -14,9 +14,11 @@ namespace WebStore.Controllers
     {
 
         EmployeeRepository empRepo;
+        PositionRepository positionRepo;
         public HomeController()
         {
             this.empRepo = new EmployeeRepository();
+            this.positionRepo = new PositionRepository();
         }
 
        
@@ -80,6 +82,7 @@ namespace WebStore.Controllers
         {
             if (id == null)
             {
+                
                 return View(new Employee());
             }
 
@@ -88,6 +91,7 @@ namespace WebStore.Controllers
             {
                 return HttpNotFound();
             }
+                        
 
             var employee = new Employee
             {
@@ -97,7 +101,7 @@ namespace WebStore.Controllers
                 Partonymic = employeeTmp.Partonymic,
                 Age = employeeTmp.Age,
                 DateofBirth = employeeTmp.DateofBirth,
-                Position = empRepo.GetPosition(employeeTmp.Id)
+                Position = empRepo.GetPosition(employeeTmp.PositionId).Name
             };
 
             return View(employee);
@@ -110,9 +114,10 @@ namespace WebStore.Controllers
             if (ModelState.IsValid)
             {
                 var foundPerson = empRepo.GetItem(emp.id);
+               
                 if (foundPerson != null)
                 {
-                    var empTemp = new WebStore.Domain.Entities.Employee
+                    WebStore.Domain.Entities.Employee empTemp = new WebStore.Domain.Entities.Employee
                     {
                         Id = emp.id,
                         FirstName = emp.FirstName,
@@ -121,11 +126,29 @@ namespace WebStore.Controllers
                         Age = emp.Age,
                         DateofBirth = emp.DateofBirth,
                         PositionId = empRepo.GetPositionIdForPositionName(emp.Position)
-                        
+
                     };
+
                     empRepo.Update(empTemp);
-                }else
-                    db.Add(emp);
+                }
+                else
+                {
+                    WebStore.Domain.Entities.Employee empTemp = new WebStore.Domain.Entities.Employee
+                    {
+                        Id = emp.id,
+                        FirstName = emp.FirstName,
+                        LastName = emp.LastName,
+                        Partonymic = emp.Partonymic,
+                        Age = emp.Age,
+                        DateofBirth = emp.DateofBirth,
+                        PositionId = empRepo.GetPositionIdForPositionName(emp.Position)
+
+                    };
+
+                    empRepo.Create(empTemp);
+                }
+
+                    
                return RedirectToAction("Index");
             }
 
@@ -135,7 +158,7 @@ namespace WebStore.Controllers
         [MyAuthorizeAttribute(Roles = "Администратор")]
         public ActionResult Delete(int id)
         {
-            db.Delete(id);
+            empRepo.Delete(id);
             return RedirectToAction("Index");
         }
     }

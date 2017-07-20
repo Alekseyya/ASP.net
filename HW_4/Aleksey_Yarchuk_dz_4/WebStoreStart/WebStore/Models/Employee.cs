@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using WebStore.DAL.Repository;
 
 namespace WebStore.Models
 {
     public class Employee
     {
+        PositionRepository positionRepo;
+        public Employee()
+        {
+            this.positionRepo = new PositionRepository();
+        }
         public int id { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Неправильно введено имя")]
@@ -29,7 +36,7 @@ namespace WebStore.Models
         [Display(Name = "Возраст")]
         public int Age { get; set; }
 
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Возраст должно состоять от 1 до 2 символов")]
+        //[StringLength(50, MinimumLength = 3, ErrorMessage = "Должность должна состоять от 1 до 2 символов")]
         [Display(Name = "Должность")]
         public string Position { get; set; }
 
@@ -39,5 +46,20 @@ namespace WebStore.Models
         [Display(Name = "Дата рождения")]
         public DateTime DateofBirth { get; set; }
 
+
+        public IEnumerable<SelectListItem> PositionList
+        {
+            get
+            {
+                List<SelectListItem> tmpList = new List<SelectListItem>();
+                foreach (var item in positionRepo.GetList())
+                {
+                    tmpList.Add(new SelectListItem { Text = item.Name, Value = item.Name });
+                }
+                return tmpList.Select(l => new SelectListItem { Selected = (l.Value==Position), Text = l.Text, Value = l.Value });
+            }
+                       
+        }
+         
     }
 }

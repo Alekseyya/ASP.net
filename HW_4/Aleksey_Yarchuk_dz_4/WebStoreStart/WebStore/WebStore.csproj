@@ -193,6 +193,10 @@
       <Project>{0787A135-61C8-426E-830B-AF26CE7AE040}</Project>
       <Name>WebStore.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebStore.Domain\WebStore.Domain.csproj">
+      <Project>{c263f5c4-f288-4e02-92d1-a5952971a7dc}</Project>
+      <Name>WebStore.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

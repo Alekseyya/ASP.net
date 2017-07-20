@@ -48,7 +48,7 @@ namespace WebStore.DAL.Repository
         {
             return db.Users.ToList();
         }
-
+        public User SearchByLogin(string login) => db.Users.FirstOrDefault(log => log.Login == login);
         public void Update(User us)
         {
             var user = db.Users.FirstOrDefault(u => u.Id == us.Id);
@@ -82,6 +82,11 @@ namespace WebStore.DAL.Repository
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
             }
+        }
+
+        public Role GetRole(int id)
+        {
+            return db.Roles.FirstOrDefault(role => role.Id == id);
         }
     }
 }

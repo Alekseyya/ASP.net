@@ -39,9 +39,9 @@
         <p>
             @Html.LabelFor(m=>m.Position)
             <br/>
-            @Html.EditorFor(m => m.Position)
+            @Html.DropDownListFor(m => m.Position, Model.PositionList)
             @Html.ValidationMessageFor(m => m.Position, "", new { @class = "text-danger" })
-        </p>
+        </p>        
         <p>
             @Html.LabelFor(m => m.DateofBirth)
             <br />

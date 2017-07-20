@@ -54,3 +54,7 @@ c:\Work\Geekbrains\ASP.net\HW_4\Aleksey_Yarchuk_dz_4\WebStoreStart\WebStore\bin\
 c:\Work\Geekbrains\ASP.net\HW_4\Aleksey_Yarchuk_dz_4\WebStoreStart\WebStore\bin\EntityFramework.SqlServer.dll
 c:\Work\Geekbrains\ASP.net\HW_4\Aleksey_Yarchuk_dz_4\WebStoreStart\WebStore\bin\EntityFramework.xml
 c:\Work\Geekbrains\ASP.net\HW_4\Aleksey_Yarchuk_dz_4\WebStoreStart\WebStore\bin\EntityFramework.SqlServer.xml
+c:\Work\Geekbrains\ASP.net\HW_4\Aleksey_Yarchuk_dz_4\WebStoreStart\WebStore\bin\WebStore.DAL.dll
+c:\Work\Geekbrains\ASP.net\HW_4\Aleksey_Yarchuk_dz_4\WebStoreStart\WebStore\bin\WebStore.Domain.dll
+c:\Work\Geekbrains\ASP.net\HW_4\Aleksey_Yarchuk_dz_4\WebStoreStart\WebStore\bin\WebStore.DAL.pdb
+c:\Work\Geekbrains\ASP.net\HW_4\Aleksey_Yarchuk_dz_4\WebStoreStart\WebStore\bin\WebStore.Domain.pdb
