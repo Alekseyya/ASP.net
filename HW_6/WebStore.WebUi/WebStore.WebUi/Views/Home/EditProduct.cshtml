@@ -1,0 +1,36 @@
+﻿@model WebStore.WebUi.service.ProductsService
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>ServiceClient</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <fieldset>
+            @Html.HiddenFor(m => m.Id)
+            <p>
+                @Html.LabelFor(m => m.Name)
+                <br />
+                @Html.EditorFor(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </p>
+            <p>
+                @Html.LabelFor(m => m.Count)
+                <br />
+                @Html.EditorFor(m => m.Count)
+                @Html.ValidationMessageFor(m => m.Count, "", new { @class = "text-danger" })
+
+            </p>
+            
+            <p><input type="submit" value="Отправить" /></p>
+        </fieldset>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
