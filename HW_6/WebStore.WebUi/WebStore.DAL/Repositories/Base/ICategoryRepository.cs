@@ -9,5 +9,6 @@ namespace WebStore.DAL.Repositories.Base
 {
     public interface ICategoryRepository: IBaseRepository<Category>
     {
+        Category GetByName(string name);
     }
 }

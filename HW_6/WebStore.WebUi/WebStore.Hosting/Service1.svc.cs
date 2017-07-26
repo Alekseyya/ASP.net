@@ -22,14 +22,64 @@ namespace WebStore.Hosting
             _service = new Services.Services.Service(repository);
         }
 
-        public ProductDataContract GetItem(int id)
+        public bool AddUser(UserDataContract user)
         {
             throw new NotImplementedException();
         }
 
-        public List<ProductDataContract> GetList()
+        public bool DeleteUser(int id)
         {
-            return _service.GetList();
+            throw new NotImplementedException();
+        }
+
+        public bool EditUser(UserDataContract user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<CategoryDataContract> GetCategories()
+        {
+            return _service.GetCategories();
+        }
+
+        public CategoryDataContract GetCategory(string name)
+        {
+            return _service.GetCategory(name);
+        }
+
+        public CategoryDataContract GetCategory(int id)
+        {
+            return _service.GetCategory(id);
+        }
+
+        public ProductDataContract GetProduct(int id)
+        {
+            return _service.GetProduct(id);
+        }
+
+        public List<ProductDataContract> GetProducts()
+        {
+            return _service.GetProducts();
+        }
+
+        public UserDataContract GetUser(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UserDataContract GetUser(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<UserDataContract> GetUsers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RestoreUser(int id)
+        {
+            throw new NotImplementedException();
         }
 
         #region oldService

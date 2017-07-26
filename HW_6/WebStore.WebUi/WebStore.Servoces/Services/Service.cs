@@ -23,12 +23,71 @@ namespace WebStore.Services.Services
             this._unitOfWork = unitOfWork;
         }
 
-        public ProductDataContract GetItem(int id)
+        public bool AddUser(UserDataContract user)
         {
             throw new NotImplementedException();
         }
 
-        public List<ProductDataContract> GetList() //перевод из product в productdatacontract
+        public bool DeleteUser(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool EditUser(UserDataContract user)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Получить список категорий
+        /// </summary>
+        /// <returns>IEnumerable<CategoryDataContract></returns>
+        public IEnumerable<CategoryDataContract> GetCategories()
+        {
+            Mapper.Initialize(o => o.CreateMap<Category, CategoryDataContract>());
+            var categoriesDataContract = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryDataContract>>(_unitOfWork.CategoryRepository.GetList());
+            return categoriesDataContract.ToList();
+        }
+        /// <summary>
+        /// Получение категории по имени
+        /// </summary>
+        /// <param name="name">Имя категории</param>
+        /// <returns>CategoryDataContract</returns>
+        public CategoryDataContract GetCategory(string name)
+        {
+            Mapper.Initialize(o => o.CreateMap<Category, CategoryDataContract>());
+            var categoryDataContract = Mapper.Map<Category, CategoryDataContract>(_unitOfWork.CategoryRepository.GetByName(name));
+            return categoryDataContract;
+        }
+        /// <summary>
+        /// Получение категории по id
+        /// </summary>
+        /// <param name="id">id категории</param>
+        /// <returns>CategoryDataContract</returns>
+        public CategoryDataContract GetCategory(int id)
+        {
+            Mapper.Initialize(o => o.CreateMap<Category, CategoryDataContract>());
+            var categoryDataContract = Mapper.Map<Category, CategoryDataContract>(_unitOfWork.CategoryRepository.GetItem(id));
+            return categoryDataContract;
+        }
+
+        /// <summary>
+        /// Получение товара по id
+        /// </summary>
+        /// <param name="id">Id товара</param>
+        /// <returns>ProductDataContract</returns>
+        public ProductDataContract GetProduct(int id)
+        {
+            Mapper.Initialize(o => o.CreateMap<Product, ProductDataContract>());
+            var productDataContract = Mapper.Map<Product, ProductDataContract>(_unitOfWork.ProductRepository.GetItem(id));
+            return productDataContract;
+        }
+
+        /// <summary>
+        /// Получение списка товаров
+        /// </summary>
+        /// <returns>List<ProductDataContract></returns>
+        public List<ProductDataContract> GetProducts() 
         {
             Mapper.Initialize(o => o.CreateMap<Product, ProductDataContract>()
                     .ForMember("Category", opt => opt.MapFrom(c=>c.Category.Name)));
@@ -54,6 +113,26 @@ namespace WebStore.Services.Services
             //return tmpProd; 
             #endregion
 
+        }
+
+        public UserDataContract GetUser(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UserDataContract GetUser(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<UserDataContract> GetUsers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RestoreUser(int id)
+        {
+            throw new NotImplementedException();
         }
 
         #region oldService

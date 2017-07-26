@@ -39,6 +39,11 @@ namespace WebStore.DAL.Repositories
             return db.Categories.ToList();
         }
 
+        public Category GetByName(string name)
+        {
+            return db.Categories.FirstOrDefault(o => o.Name == name);
+        }
+
         public void Update(Category categ)
         {
             var category = db.Categories.FirstOrDefault(o => o.Id == categ.Id);

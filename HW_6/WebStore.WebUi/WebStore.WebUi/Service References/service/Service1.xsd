@@ -18,4 +18,33 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProductDataContract" nillable="true" type="tns:ProductDataContract" />
+  <xs:complexType name="ArrayOfCategoryDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CategoryDataContract" nillable="true" type="tns:CategoryDataContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategoryDataContract" nillable="true" type="tns:ArrayOfCategoryDataContract" />
+  <xs:complexType name="CategoryDataContract">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CategoryDataContract" nillable="true" type="tns:CategoryDataContract" />
+  <xs:complexType name="ArrayOfUserDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserDataContract" nillable="true" type="tns:UserDataContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserDataContract" nillable="true" type="tns:ArrayOfUserDataContract" />
+  <xs:complexType name="UserDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDataContract" nillable="true" type="tns:UserDataContract" />
 </xs:schema>

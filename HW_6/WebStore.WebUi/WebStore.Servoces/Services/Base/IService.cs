@@ -11,12 +11,80 @@ namespace WebStore.Services.Services.Base
     [ServiceContract]
     public interface IService
     {
+        /// <summary>
+        /// Полсучить список продуктов
+        /// </summary>
+        /// <returns>List<ProductDataContract></returns>
+        [OperationContract]
+        List<ProductDataContract> GetProducts();
+
+        /// <summary>
+        /// Получить товар по id
+        /// </summary>
+        /// <param name="id">Id продукта</param>
+        /// <returns>ProductDataContract</returns>
+        [OperationContract]
+        ProductDataContract GetProduct(int id);
 
         [OperationContract]
-        List<ProductDataContract> GetList();
+        IEnumerable<CategoryDataContract> GetCategories();
+
+        //[OperationContract(Name = "GetCategoryById")]
+        [OperationContractAttribute(Name ="GetCategoryById")]
+        CategoryDataContract GetCategory(int id);
+
+        [OperationContractAttribute(Name = "GetCategoryByName")]
+        CategoryDataContract GetCategory(string name);
 
         [OperationContract]
-        ProductDataContract GetItem(int id);
+        IEnumerable<UserDataContract> GetUsers();
+
+        [OperationContractAttribute(Name = "GetUserById")]
+        UserDataContract GetUser(int id);
+
+        [OperationContractAttribute(Name = "GetUserByName")]
+        UserDataContract GetUser(string name);
+
+        [OperationContract]
+        bool AddUser(UserDataContract user);
+
+        [OperationContract]
+        bool EditUser(UserDataContract user);
+
+        [OperationContract]
+        bool DeleteUser(int id);
+
+        [OperationContract]
+        bool RestoreUser(int id);
+
+        #region Future
+        //[OperationContract]
+        //IEnumerable<Group> GetGroups();
+
+        //[OperationContract]
+        //Group GetGroup(int id);
+
+        //[OperationContract]
+        //Group GetGroup(string name);
+
+        //[OperationContract]
+        //IEnumerable<Order> GetOrders();
+
+        //[OperationContract]
+        //Order GetOrder(int id);
+
+        //[OperationContract]
+        //IEnumerable<OrderDetail> GetOrderDetails();
+
+        //[OperationContract]
+        //IEnumerable<OrderDetail> GetOrderDetails(Func<OrderDetail, bool> func);
+
+        //[OperationContract]
+        //bool AddOrder(Order order);
+
+        //[OperationContract]
+        //bool AddOrderDetails(IEnumerable<OrderDetail> orderDetails); 
+        #endregion
         
     }
 }

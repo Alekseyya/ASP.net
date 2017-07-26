@@ -18,9 +18,21 @@ namespace WebStore.WebUi.Controllers
             using (var client = new service.ServiceClient())
             {
                 Mapper.Initialize(o => o.CreateMap<service.ProductDataContract, IndexProductViewModel>());
-                product = Mapper.Map<IEnumerable<service.ProductDataContract>, IEnumerable<IndexProductViewModel>>(client.GetList());
+                product = Mapper.Map<IEnumerable<service.ProductDataContract>, IEnumerable<IndexProductViewModel>>(client.GetProducts());
             }
             return View(product);
+        }
+
+        public ActionResult Categories()
+        {
+            IEnumerable<CategoryViewModel> categories;
+            using (var client = new service.ServiceClient())
+            {
+                Mapper.Initialize(o => o.CreateMap<service.CategoryDataContract, CategoryViewModel>());
+                categories = Mapper.Map<IEnumerable<service.CategoryDataContract>, IEnumerable<CategoryViewModel>>(client.GetCategories());
+
+            }
+            return View(categories);
         }
 
         [HttpGet]
@@ -28,14 +40,16 @@ namespace WebStore.WebUi.Controllers
         {
             if (id.HasValue)
             {
-                service.ProductDataContract prod;
+                EditProductViewModel product = null;
                 using (var client = new service.ServiceClient())
                 {
-                    prod = client.GetItem((int)id);                    
+                    Mapper.Initialize(o => o.CreateMap<service.ProductDataContract, EditProductViewModel>());
+                    product = Mapper.Map<service.ProductDataContract, EditProductViewModel>(client.GetProduct((int)id));
                 }
-                return View(prod);
+                return View(product);
             }
-            return View(new service.ProductDataContract());
+
+            return View(new EditProductViewModel());           
         }
 
         [HttpPost]
