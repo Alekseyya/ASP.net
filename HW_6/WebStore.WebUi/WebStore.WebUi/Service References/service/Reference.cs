@@ -15,18 +15,27 @@ namespace WebStore.WebUi.service {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductsService", Namespace="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductDataContract", Namespace="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service")]
     [System.SerializableAttribute()]
-    public partial class ProductsService : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ProductDataContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        private string CategoryField;
+        
         private int CountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionsField;
         
         private int IdField;
         
+        private bool IsDeletedField;
+        
         private string NameField;
+        
+        private decimal PriceField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -39,6 +48,19 @@ namespace WebStore.WebUi.service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int Count {
             get {
                 return this.CountField;
@@ -47,6 +69,19 @@ namespace WebStore.WebUi.service {
                 if ((this.CountField.Equals(value) != true)) {
                     this.CountField = value;
                     this.RaisePropertyChanged("Count");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descriptions {
+            get {
+                return this.DescriptionsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionsField, value) != true)) {
+                    this.DescriptionsField = value;
+                    this.RaisePropertyChanged("Descriptions");
                 }
             }
         }
@@ -65,6 +100,19 @@ namespace WebStore.WebUi.service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool IsDeleted {
+            get {
+                return this.IsDeletedField;
+            }
+            set {
+                if ((this.IsDeletedField.Equals(value) != true)) {
+                    this.IsDeletedField = value;
+                    this.RaisePropertyChanged("IsDeleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string Name {
             get {
                 return this.NameField;
@@ -73,6 +121,19 @@ namespace WebStore.WebUi.service {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public decimal Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
                 }
             }
         }
@@ -91,35 +152,17 @@ namespace WebStore.WebUi.service {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="service.IService")]
     public interface IService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetListProducts", ReplyAction="http://tempuri.org/IService/GetListProductsResponse")]
-        WebStore.WebUi.service.ProductsService[] GetListProducts();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetList", ReplyAction="http://tempuri.org/IService/GetListResponse")]
+        WebStore.WebUi.service.ProductDataContract[] GetList();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetListProducts", ReplyAction="http://tempuri.org/IService/GetListProductsResponse")]
-        System.Threading.Tasks.Task<WebStore.WebUi.service.ProductsService[]> GetListProductsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetList", ReplyAction="http://tempuri.org/IService/GetListResponse")]
+        System.Threading.Tasks.Task<WebStore.WebUi.service.ProductDataContract[]> GetListAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetItemProduct", ReplyAction="http://tempuri.org/IService/GetItemProductResponse")]
-        WebStore.WebUi.service.ProductsService GetItemProduct(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetItem", ReplyAction="http://tempuri.org/IService/GetItemResponse")]
+        WebStore.WebUi.service.ProductDataContract GetItem(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetItemProduct", ReplyAction="http://tempuri.org/IService/GetItemProductResponse")]
-        System.Threading.Tasks.Task<WebStore.WebUi.service.ProductsService> GetItemProductAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CreateProduct", ReplyAction="http://tempuri.org/IService/CreateProductResponse")]
-        void CreateProduct(WebStore.WebUi.service.ProductsService item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CreateProduct", ReplyAction="http://tempuri.org/IService/CreateProductResponse")]
-        System.Threading.Tasks.Task CreateProductAsync(WebStore.WebUi.service.ProductsService item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteProduct", ReplyAction="http://tempuri.org/IService/DeleteProductResponse")]
-        void DeleteProduct(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteProduct", ReplyAction="http://tempuri.org/IService/DeleteProductResponse")]
-        System.Threading.Tasks.Task DeleteProductAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateProduct", ReplyAction="http://tempuri.org/IService/UpdateProductResponse")]
-        void UpdateProduct(WebStore.WebUi.service.ProductsService item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateProduct", ReplyAction="http://tempuri.org/IService/UpdateProductResponse")]
-        System.Threading.Tasks.Task UpdateProductAsync(WebStore.WebUi.service.ProductsService item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetItem", ReplyAction="http://tempuri.org/IService/GetItemResponse")]
+        System.Threading.Tasks.Task<WebStore.WebUi.service.ProductDataContract> GetItemAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -149,44 +192,20 @@ namespace WebStore.WebUi.service {
                 base(binding, remoteAddress) {
         }
         
-        public WebStore.WebUi.service.ProductsService[] GetListProducts() {
-            return base.Channel.GetListProducts();
+        public WebStore.WebUi.service.ProductDataContract[] GetList() {
+            return base.Channel.GetList();
         }
         
-        public System.Threading.Tasks.Task<WebStore.WebUi.service.ProductsService[]> GetListProductsAsync() {
-            return base.Channel.GetListProductsAsync();
+        public System.Threading.Tasks.Task<WebStore.WebUi.service.ProductDataContract[]> GetListAsync() {
+            return base.Channel.GetListAsync();
         }
         
-        public WebStore.WebUi.service.ProductsService GetItemProduct(int id) {
-            return base.Channel.GetItemProduct(id);
+        public WebStore.WebUi.service.ProductDataContract GetItem(int id) {
+            return base.Channel.GetItem(id);
         }
         
-        public System.Threading.Tasks.Task<WebStore.WebUi.service.ProductsService> GetItemProductAsync(int id) {
-            return base.Channel.GetItemProductAsync(id);
-        }
-        
-        public void CreateProduct(WebStore.WebUi.service.ProductsService item) {
-            base.Channel.CreateProduct(item);
-        }
-        
-        public System.Threading.Tasks.Task CreateProductAsync(WebStore.WebUi.service.ProductsService item) {
-            return base.Channel.CreateProductAsync(item);
-        }
-        
-        public void DeleteProduct(int id) {
-            base.Channel.DeleteProduct(id);
-        }
-        
-        public System.Threading.Tasks.Task DeleteProductAsync(int id) {
-            return base.Channel.DeleteProductAsync(id);
-        }
-        
-        public void UpdateProduct(WebStore.WebUi.service.ProductsService item) {
-            base.Channel.UpdateProduct(item);
-        }
-        
-        public System.Threading.Tasks.Task UpdateProductAsync(WebStore.WebUi.service.ProductsService item) {
-            return base.Channel.UpdateProductAsync(item);
+        public System.Threading.Tasks.Task<WebStore.WebUi.service.ProductDataContract> GetItemAsync(int id) {
+            return base.Channel.GetItemAsync(id);
         }
     }
 }

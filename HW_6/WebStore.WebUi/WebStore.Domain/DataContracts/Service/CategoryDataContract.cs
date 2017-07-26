@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace WebStore.Domain.DataContracts.Service
 {
     [DataContract]
-    public class CategoryService
+    public class CategoryDataContract
     {
         [DataMember(IsRequired = true)]
         public int Id { get; set; }

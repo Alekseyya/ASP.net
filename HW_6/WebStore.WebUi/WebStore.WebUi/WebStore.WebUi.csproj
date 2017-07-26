@@ -212,6 +212,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\EditProduct.cshtml" />
     <None Include="Service References\service\Service1.wsdl" />
     <None Include="Service References\service\Service1.xsd">
       <SubType>Designer</SubType>
@@ -222,10 +223,9 @@
     <None Include="Service References\service\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\service\WebStore.WebUi.service.ProductsService.datasource">
+    <Content Include="Service References\service\WebStore.WebUi.service.ProductDataContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Views\Home\EditProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

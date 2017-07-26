@@ -10,6 +10,19 @@ namespace WebStore.DAL.Context
 {
    public class WebStoreContext :DbContext
     {
+        private static WebStoreContext _context;
+        static WebStoreContext()
+        {
+            _context = new WebStoreContext();
+        }
+
+        public static WebStoreContext Instance
+        {
+            get
+            {
+                return _context;
+            }
+        }
         public WebStoreContext()
             : base("DbContext")
         { }

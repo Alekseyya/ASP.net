@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using WebStore.DAL.Repositories.Base;
 using WebStore.Domain.DataContracts.Service;
 using WebStore.Services.Services.Base;
 
@@ -15,43 +16,54 @@ namespace WebStore.Hosting
     public class Service1 : IService
     {
         private readonly IService _service;
-        public Service1()
+       
+        public Service1(IUnitOfWork repository)
         {
-            _service = new Services.Services.Service();
+            _service = new Services.Services.Service(repository);
         }
 
-        public void CreateProduct(ProductsService item)
+        public ProductDataContract GetItem(int id)
         {
-            _service.CreateProduct(item);
+            throw new NotImplementedException();
         }
 
-        public void DeleteProduct(int id)
+        public List<ProductDataContract> GetList()
         {
-            _service.DeleteProduct(id);
+            return _service.GetList();
         }
 
-        public ProductsService GetItemProduct(int id)
-        {
-            return _service.GetItemProduct(id);
-        }
-
-        public List<ProductsService> GetListProducts()
-        {
-            return _service.GetListProducts();
-        }
-
-        public void UpdateProduct(ProductsService item)
-        {
-            _service.UpdateProduct(item);
-        }
-        //public string GetData(int value)
+        #region oldService
+        //private readonly IService _service;
+        //public Service1()
         //{
-        //    return _service.GetData(value);
+        //    _service = new Services.Services.Service();
         //}
 
-        //public CompositeType GetDataUsingDataContract(CompositeType composite)
+        //public void CreateProduct(ProductDataContract item)
         //{
-        //    return _service.GetDataUsingDataContract(composite);
+        //    _service.CreateProduct(item);
         //}
+
+        //public void DeleteProduct(int id)
+        //{
+        //    _service.DeleteProduct(id);
+        //}
+
+        //public ProductDataContract GetItemProduct(int id)
+        //{
+        //    return _service.GetItemProduct(id);
+        //}
+
+        //public List<ProductDataContract> GetListProducts()
+        //{
+        //    return _service.GetListProducts();
+        //}
+
+        //public void UpdateProduct(ProductDataContract item)
+        //{
+        //    _service.UpdateProduct(item);
+        //} 
+        #endregion
+
     }
 }

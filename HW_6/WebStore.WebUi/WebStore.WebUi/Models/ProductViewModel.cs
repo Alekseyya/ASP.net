@@ -14,6 +14,8 @@ namespace WebStore.WebUi.Models
         [Display(Name= "Имя товара")]
         public string Name { get; set; }
 
+        [Display(Name="Описание")]
+        public string Descriptions { get; set; }
         [Display(Name= "Количество")]
         public int Count { get; set; }
     }

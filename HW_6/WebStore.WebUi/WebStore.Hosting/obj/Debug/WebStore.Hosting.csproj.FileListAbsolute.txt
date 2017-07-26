@@ -56,3 +56,11 @@ c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Hosting\bin\WebStore.DAL
 c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Hosting\obj\Debug\WebStore.Hosting.csprojResolveAssemblyReference.cache
 c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Hosting\obj\Debug\WebStore.Hosting.dll
 c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Hosting\obj\Debug\WebStore.Hosting.pdb
+c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Hosting\bin\Ninject.dll
+c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Hosting\bin\Ninject.Extensions.Wcf.dll
+c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Hosting\bin\Ninject.Web.Common.dll
+c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Hosting\bin\Ninject.xml
+c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Hosting\bin\Ninject.Extensions.Wcf.xml
+c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Hosting\bin\Ninject.Web.Common.xml
+c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Hosting\bin\AutoMapper.dll
+c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Hosting\bin\AutoMapper.xml

@@ -17,8 +17,8 @@ namespace WebStore.WebUi.Controllers
             IEnumerable<IndexProductViewModel> product = null;
             using (var client = new service.ServiceClient())
             {
-                Mapper.Initialize(o => o.CreateMap<service.ProductsService, IndexProductViewModel>());
-                product = Mapper.Map<IEnumerable<service.ProductsService>, IEnumerable<IndexProductViewModel>>(client.GetListProducts());
+                Mapper.Initialize(o => o.CreateMap<service.ProductDataContract, IndexProductViewModel>());
+                product = Mapper.Map<IEnumerable<service.ProductDataContract>, IEnumerable<IndexProductViewModel>>(client.GetList());
             }
             return View(product);
         }
@@ -28,51 +28,51 @@ namespace WebStore.WebUi.Controllers
         {
             if (id.HasValue)
             {
-                service.ProductsService prod;
+                service.ProductDataContract prod;
                 using (var client = new service.ServiceClient())
                 {
-                    prod = client.GetItemProduct((int)id);                    
+                    prod = client.GetItem((int)id);                    
                 }
                 return View(prod);
             }
-            return View(new service.ProductsService());
+            return View(new service.ProductDataContract());
         }
 
         [HttpPost]
-        public ActionResult EditProduct(service.ProductsService prod)
+        public ActionResult EditProduct(service.ProductDataContract prod)
         {
-            if (ModelState.IsValid)
-            {
-                using (var client = new service.ServiceClient())
-                {
-                    client.UpdateProduct(prod);
-                }
+            //if (ModelState.IsValid)
+            //{
+            //    using (var client = new service.ServiceClient())
+            //    {
+            //        client.u(prod);
+            //    }
                 
-            }
+            //}
             return RedirectToAction("Index");
         }
 
         public ActionResult Details(int id)
         {
-            using (var client = new service.ServiceClient())
-            {
-                var prod = client.GetItemProduct(id);
-                if (prod != null)
-                {
-                    return View(prod);
-                }
+            //using (var client = new service.ServiceClient())
+            //{
+            //    var prod = client.GetItemProduct(id);
+            //    if (prod != null)
+            //    {
+            //        return View(prod);
+            //    }
 
-            }
+            //}
 
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
         {
-            using (var client = new service.ServiceClient())
-            {
-                client.DeleteProduct(id);               
-            }
+            //using (var client = new service.ServiceClient())
+            //{
+            //    client.DeleteProduct(id);               
+            //}
             return RedirectToAction("Index");
         }
     }

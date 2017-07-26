@@ -10,7 +10,7 @@ using WebStore.Domain.Entities;
 
 namespace WebStore.DAL.Repositories
 {
-    public class CategoryRepository : IRepository<Category>
+    public class CategoryRepository : ICategoryRepository
     {
         private WebStoreContext db;
         public CategoryRepository(WebStoreContext context)
@@ -34,7 +34,7 @@ namespace WebStore.DAL.Repositories
             return db.Categories.FirstOrDefault(o => o.Id == id);
         }
 
-        public IList<Category> GetList()
+        public IEnumerable<Category> GetList()
         {
             return db.Categories.ToList();
         }

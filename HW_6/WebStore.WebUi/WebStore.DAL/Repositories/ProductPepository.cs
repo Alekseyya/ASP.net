@@ -10,7 +10,7 @@ using WebStore.Domain.Entities;
 
 namespace WebStore.DAL.Repositories
 {
-    public class ProductPepository : IRepository<Product>
+    public class ProductPepository : IProductRepository
     {
         WebStoreContext db;
         public ProductPepository(WebStoreContext context)
@@ -31,12 +31,13 @@ namespace WebStore.DAL.Repositories
         
         public Product GetItem(int id)
         {
-            return db.Products.FirstOrDefault(o => o.Id == id);
+            return db.Products.Include("Category").FirstOrDefault(o => o.Id == id);
         }
 
-        public IList<Product> GetList()
-        {            
-            return db.Products.ToList();
+        public IEnumerable<Product> GetList()
+        {
+            var tt = db.Products.Include("Category").ToList();
+            return db.Products.Include("Category").ToList();
         }
 
         public void Update(Product prod)

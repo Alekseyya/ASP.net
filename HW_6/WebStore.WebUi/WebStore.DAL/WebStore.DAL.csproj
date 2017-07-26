@@ -56,7 +56,10 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Base\IRepository.cs" />
+    <Compile Include="Repositories\Base\IBaseRepository.cs" />
+    <Compile Include="Repositories\Base\ICategoryRepository.cs" />
+    <Compile Include="Repositories\Base\IProductRepository.cs" />
+    <Compile Include="Repositories\Base\IUnitOfWork.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\ProductPepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />

@@ -13,16 +13,10 @@ namespace WebStore.Services.Services.Base
     {
 
         [OperationContract]
-        List<ProductsService> GetListProducts();
-        [OperationContract]
-        ProductsService GetItemProduct(int id);
-        [OperationContract]
-        void CreateProduct(ProductsService item);
-        [OperationContract]
-        void DeleteProduct(int id);
-        [OperationContract]
-        void UpdateProduct(ProductsService item);
+        List<ProductDataContract> GetList();
 
-
+        [OperationContract]
+        ProductDataContract GetItem(int id);
+        
     }
 }

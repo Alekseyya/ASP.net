@@ -20,3 +20,5 @@ c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Servoces\bin\Debug\Entit
 c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Servoces\obj\Debug\WebStore.Services.csprojResolveAssemblyReference.cache
 c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Servoces\obj\Debug\WebStore.Servoces.dll
 c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Servoces\obj\Debug\WebStore.Servoces.pdb
+c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Servoces\bin\Debug\AutoMapper.dll
+c:\Work\Geekbrains\ASP.net\HW_6\WebStore.WebUi\WebStore.Servoces\bin\Debug\AutoMapper.xml
