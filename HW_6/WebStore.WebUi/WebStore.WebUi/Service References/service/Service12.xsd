@@ -27,6 +27,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdateProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="product" nillable="true" type="q3:ProductDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProductResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetCategories">
     <xs:complexType>
       <xs:sequence />
@@ -35,7 +47,7 @@
   <xs:element name="GetCategoriesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetCategoriesResult" nillable="true" type="q3:ArrayOfCategoryDataContract" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetCategoriesResult" nillable="true" type="q4:ArrayOfCategoryDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -49,7 +61,7 @@
   <xs:element name="GetCategoryByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetCategoryByIdResult" nillable="true" type="q4:CategoryDataContract" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetCategoryByIdResult" nillable="true" type="q5:CategoryDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -63,7 +75,7 @@
   <xs:element name="GetCategoryByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetCategoryByNameResult" nillable="true" type="q5:CategoryDataContract" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetCategoryByNameResult" nillable="true" type="q6:CategoryDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -75,7 +87,7 @@
   <xs:element name="GetUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetUsersResult" nillable="true" type="q6:ArrayOfUserDataContract" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetUsersResult" nillable="true" type="q7:ArrayOfUserDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -89,7 +101,7 @@
   <xs:element name="GetUserByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetUserByIdResult" nillable="true" type="q7:UserDataContract" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetUserByIdResult" nillable="true" type="q8:UserDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -103,14 +115,14 @@
   <xs:element name="GetUserByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetUserByNameResult" nillable="true" type="q8:UserDataContract" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetUserByNameResult" nillable="true" type="q9:UserDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="user" nillable="true" type="q9:UserDataContract" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="user" nillable="true" type="q10:UserDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -124,7 +136,7 @@
   <xs:element name="EditUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="user" nillable="true" type="q10:UserDataContract" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="user" nillable="true" type="q11:UserDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

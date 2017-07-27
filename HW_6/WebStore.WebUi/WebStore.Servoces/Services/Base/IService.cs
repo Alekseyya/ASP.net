@@ -5,6 +5,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using WebStore.Domain.DataContracts.Service;
+using WebStore.Domain.Entities;
 
 namespace WebStore.Services.Services.Base
 {
@@ -25,6 +26,9 @@ namespace WebStore.Services.Services.Base
         /// <returns>ProductDataContract</returns>
         [OperationContract]
         ProductDataContract GetProduct(int id);
+
+        [OperationContract]
+        void UpdateProduct(ProductDataContract product);
 
         [OperationContract]
         IEnumerable<CategoryDataContract> GetCategories();

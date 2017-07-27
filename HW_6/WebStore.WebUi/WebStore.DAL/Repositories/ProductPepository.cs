@@ -27,8 +27,7 @@ namespace WebStore.DAL.Repositories
             Product prod = db.Products.FirstOrDefault(o => o.Id == id);
             db.Products.Remove(prod);            
         }
-
-        
+               
         public Product GetItem(int id)
         {
             return db.Products.Include("Category").FirstOrDefault(o => o.Id == id);

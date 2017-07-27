@@ -1,0 +1,44 @@
+﻿@model WebStore.WebUi.Models.CategoryViewModel
+
+@{
+    ViewBag.Title = "Catalog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @using (Html.BeginForm("Catalog", "Home", FormMethod.Post, new { @class = "filter" }))
+    {
+        <div class="filter__dropdown">
+            @Html.DropDownListFor(m => m.NameCategory, Model.ListName)
+        </div>
+        <div class="filter__chekbox">
+            <div class="filter__chekboxName">По возрастанию</div>
+            @Html.CheckBoxFor(m => m.PriceAscending)
+        </div>
+        <div class="filter__priceTexBox">
+            @Html.TextBoxFor(m=>m.Price)
+        </div>
+        <div class="filter__submit">
+            <input type="submit" value="Send" />
+        </div>        
+        
+    }
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Descriptions</th>
+        <th>Price</th>
+        <th>Count</th>
+
+    </tr>
+
+    @foreach (var prod in ViewBag.Products)
+    {
+        <tr>
+            <td>@prod.Name</td>
+            <td>@prod.Descriptions</td>
+            <td>@prod.Price</td>
+            <td>@prod.Count</td>
+        </tr>
+    }
+</table>

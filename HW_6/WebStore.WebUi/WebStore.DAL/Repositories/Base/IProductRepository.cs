@@ -9,6 +9,6 @@ namespace WebStore.DAL.Repositories.Base
 {
     public interface IProductRepository : IBaseRepository<Product>
     {
-
+    
     }
 }

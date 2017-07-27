@@ -12,7 +12,7 @@ namespace WebStore.WebUi.Controllers
     public class HomeController : Controller
     {
         
-        public ActionResult Index()
+        public ActionResult ProductList()
         {
             IEnumerable<IndexProductViewModel> product = null;
             using (var client = new service.ServiceClient())
@@ -20,19 +20,70 @@ namespace WebStore.WebUi.Controllers
                 Mapper.Initialize(o => o.CreateMap<service.ProductDataContract, IndexProductViewModel>());
                 product = Mapper.Map<IEnumerable<service.ProductDataContract>, IEnumerable<IndexProductViewModel>>(client.GetProducts());
             }
+
             return View(product);
         }
+        
 
-        public ActionResult Categories()
+        [HttpGet]
+        public ActionResult Catalog()
         {
-            IEnumerable<CategoryViewModel> categories;
+            IEnumerable<IndexProductViewModel> products;                     
             using (var client = new service.ServiceClient())
             {
-                Mapper.Initialize(o => o.CreateMap<service.CategoryDataContract, CategoryViewModel>());
-                categories = Mapper.Map<IEnumerable<service.CategoryDataContract>, IEnumerable<CategoryViewModel>>(client.GetCategories());
-
+                Mapper.Initialize(o => o.CreateMap<service.ProductDataContract, IndexProductViewModel>());
+                products = Mapper.Map<IEnumerable<service.ProductDataContract>, IEnumerable<IndexProductViewModel>>(client.GetProducts());
+                
             }
-            return View(categories);
+            ViewBag.Products = products;
+            return View(new CategoryViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult Catalog(CategoryViewModel category)
+        {
+            IEnumerable<IndexProductViewModel> products;           
+            using (var client = new service.ServiceClient())
+            {
+                Mapper.Initialize(o => o.CreateMap<service.ProductDataContract, IndexProductViewModel>());
+                products = Mapper.Map<IEnumerable<service.ProductDataContract>, IEnumerable<IndexProductViewModel>>(client.GetProducts());
+                
+            }
+            if (category.NameCategory == "Все")
+            {
+                ViewBag.Products = products;
+                if (category.PriceAscending == true && category.Price==0)
+                    ViewBag.Products = products.OrderBy(u => u.Price);
+                if(category.PriceAscending == true && category.Price > 0)
+                {
+                    ViewBag.Products = products.Where(p => p.Price <= category.Price)
+                                               .OrderBy(u => u.Price);
+                }else if (category.PriceAscending == false && category.Price > 0)
+                {
+                    ViewBag.Products = products.Where(p => p.Price <= category.Price);
+                }
+                
+                return View(category);
+            }
+
+            ViewBag.Products = products.ToList().FindAll(cat => cat.Category == category.NameCategory);
+            if (category.PriceAscending == true && category.Price == 0)
+                ViewBag.Products = products.ToList().FindAll(cat => cat.Category == category.NameCategory)
+                                           .OrderBy(u => u.Price);
+            if (category.PriceAscending == true && category.Price > 0)
+            {
+                ViewBag.Products = products.ToList().FindAll(cat => cat.Category == category.NameCategory)
+                                           .Where(p => p.Price <= category.Price)
+                                           .OrderBy(u => u.Price);
+            }
+            else if (category.PriceAscending == false && category.Price > 0)
+            {
+                ViewBag.Products = products.ToList().FindAll(cat => cat.Category == category.NameCategory)
+                                           .Where(p => p.Price <= category.Price);
+            }
+
+
+            return View(category);
         }
 
         [HttpGet]
@@ -52,17 +103,21 @@ namespace WebStore.WebUi.Controllers
             return View(new EditProductViewModel());           
         }
 
+
+
         [HttpPost]
-        public ActionResult EditProduct(service.ProductDataContract prod)
+        public ActionResult EditProduct(EditProductViewModel product)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    using (var client = new service.ServiceClient())
-            //    {
-            //        client.u(prod);
-            //    }
-                
-            //}
+            if (ModelState.IsValid)
+            {
+                using (var client = new service.ServiceClient()) //преобразовать в ProductDataContract
+                {
+                    Mapper.Initialize(o => o.CreateMap<EditProductViewModel, service.ProductDataContract>());
+                    service.ProductDataContract prod = Mapper.Map<EditProductViewModel, service.ProductDataContract>(product);
+                    client.UpdateProduct(prod);
+                }
+
+            }
             return RedirectToAction("Index");
         }
 

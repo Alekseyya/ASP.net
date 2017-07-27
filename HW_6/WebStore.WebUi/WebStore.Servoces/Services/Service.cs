@@ -83,6 +83,15 @@ namespace WebStore.Services.Services
             return productDataContract;
         }
 
+        public void UpdateProduct(ProductDataContract product)
+        {
+            Mapper.Initialize(o => o.CreateMap<ProductDataContract, Product>()
+                .ForMember("Category", opt => opt.Ignore()));                
+            var productDataContract = Mapper.Map<ProductDataContract, Product>(product);
+            productDataContract.CategoryId = _unitOfWork.CategoryRepository.GetByName(product.Category).Id;
+            _unitOfWork.ProductRepository.Update(productDataContract);           
+        }
+
         /// <summary>
         /// Получение списка товаров
         /// </summary>

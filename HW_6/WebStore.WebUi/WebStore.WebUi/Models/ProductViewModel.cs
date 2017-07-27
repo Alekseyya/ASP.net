@@ -17,6 +17,11 @@ namespace WebStore.WebUi.Models
 
         [Display(Name="Описание")]
         public string Descriptions { get; set; }
+        [Display(Name = "Цена")]
+        public decimal Price { get; set; }
+
+        [Display(Name = "Категория")]
+        public string Category { get; set; }
         [Display(Name= "Количество")]
         public int Count { get; set; }
     }

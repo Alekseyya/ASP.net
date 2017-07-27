@@ -332,6 +332,12 @@ namespace WebStore.WebUi.service {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetProduct", ReplyAction="http://tempuri.org/IService/GetProductResponse")]
         System.Threading.Tasks.Task<WebStore.WebUi.service.ProductDataContract> GetProductAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateProduct", ReplyAction="http://tempuri.org/IService/UpdateProductResponse")]
+        void UpdateProduct(WebStore.WebUi.service.ProductDataContract product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateProduct", ReplyAction="http://tempuri.org/IService/UpdateProductResponse")]
+        System.Threading.Tasks.Task UpdateProductAsync(WebStore.WebUi.service.ProductDataContract product);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetCategories", ReplyAction="http://tempuri.org/IService/GetCategoriesResponse")]
         WebStore.WebUi.service.CategoryDataContract[] GetCategories();
         
@@ -434,6 +440,14 @@ namespace WebStore.WebUi.service {
         
         public System.Threading.Tasks.Task<WebStore.WebUi.service.ProductDataContract> GetProductAsync(int id) {
             return base.Channel.GetProductAsync(id);
+        }
+        
+        public void UpdateProduct(WebStore.WebUi.service.ProductDataContract product) {
+            base.Channel.UpdateProduct(product);
+        }
+        
+        public System.Threading.Tasks.Task UpdateProductAsync(WebStore.WebUi.service.ProductDataContract product) {
+            return base.Channel.UpdateProductAsync(product);
         }
         
         public WebStore.WebUi.service.CategoryDataContract[] GetCategories() {

@@ -7,6 +7,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using WebStore.DAL.Repositories.Base;
 using WebStore.Domain.DataContracts.Service;
+using WebStore.Domain.Entities;
 using WebStore.Services.Services.Base;
 
 namespace WebStore.Hosting
@@ -56,6 +57,10 @@ namespace WebStore.Hosting
         {
             return _service.GetProduct(id);
         }
+        public void UpdateProduct(ProductDataContract product)
+        {
+            _service.UpdateProduct(product);
+        }
 
         public List<ProductDataContract> GetProducts()
         {
@@ -81,6 +86,8 @@ namespace WebStore.Hosting
         {
             throw new NotImplementedException();
         }
+
+       
 
         #region oldService
         //private readonly IService _service;
