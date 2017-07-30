@@ -1,0 +1,10 @@
+c:\Work\Geekbrains\ASP.net\HW_7\WebStore.WebUi\WebStore.Domain\obj\Debug\WebStore.Domain.csprojResolveAssemblyReference.cache
+c:\Work\Geekbrains\ASP.net\HW_7\WebStore.WebUi\WebStore.Domain\bin\Debug\WebStore.Domain.dll.config
+c:\Work\Geekbrains\ASP.net\HW_7\WebStore.WebUi\WebStore.Domain\bin\Debug\WebStore.Domain.dll
+c:\Work\Geekbrains\ASP.net\HW_7\WebStore.WebUi\WebStore.Domain\bin\Debug\WebStore.Domain.pdb
+c:\Work\Geekbrains\ASP.net\HW_7\WebStore.WebUi\WebStore.Domain\bin\Debug\EntityFramework.dll
+c:\Work\Geekbrains\ASP.net\HW_7\WebStore.WebUi\WebStore.Domain\bin\Debug\EntityFramework.SqlServer.dll
+c:\Work\Geekbrains\ASP.net\HW_7\WebStore.WebUi\WebStore.Domain\bin\Debug\EntityFramework.xml
+c:\Work\Geekbrains\ASP.net\HW_7\WebStore.WebUi\WebStore.Domain\bin\Debug\EntityFramework.SqlServer.xml
+c:\Work\Geekbrains\ASP.net\HW_7\WebStore.WebUi\WebStore.Domain\obj\Debug\WebStore.Domain.dll
+c:\Work\Geekbrains\ASP.net\HW_7\WebStore.WebUi\WebStore.Domain\obj\Debug\WebStore.Domain.pdb
