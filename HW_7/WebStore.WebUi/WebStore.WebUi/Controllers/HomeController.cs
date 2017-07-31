@@ -9,6 +9,7 @@ using WebStore.WebUi.Models;
 
 namespace WebStore.WebUi.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         
@@ -35,8 +36,14 @@ namespace WebStore.WebUi.Controllers
                 products = Mapper.Map<IEnumerable<service.ProductDataContract>, IEnumerable<IndexProductViewModel>>(client.GetProducts());
                 
             }
+            ViewBag.UserInfo = new UserViewModel { IsAuthenticated = User.Identity.IsAuthenticated, UserName = User.Identity.Name };
             ViewBag.Products = products;
             return View(new CategoryViewModel());
+        }
+
+        public ActionResult Partial()
+        {
+            return PartialView();
         }
 
         [HttpPost]
@@ -52,36 +59,58 @@ namespace WebStore.WebUi.Controllers
             if (category.NameCategory == "Все")
             {
                 ViewBag.Products = products;
-                if (category.PriceAscending == true && category.Price==0)
+                if (category.PriceAscending == true && category.PriceUpTo==0)
                     ViewBag.Products = products.OrderBy(u => u.Price);
-                if(category.PriceAscending == true && category.Price > 0)
+                if(category.PriceAscending == true && category.PriceUpTo > 0)
                 {
-                    ViewBag.Products = products.Where(p => p.Price <= category.Price)
+                    ViewBag.Products = products.Where(p => p.Price <= category.PriceUpTo)
                                                .OrderBy(u => u.Price);
-                }else if (category.PriceAscending == false && category.Price > 0)
+                }else if (category.PriceAscending == false && category.PriceUpTo > 0)
                 {
-                    ViewBag.Products = products.Where(p => p.Price <= category.Price);
+                    ViewBag.Products = products.Where(p => p.Price <= category.PriceUpTo);
                 }
-                
+                //Цены
+                if (category.PriceUpTo == 0 && category.PriceAfter != 0)
+                {
+                    ViewBag.Products = products.Where(p => p.Price >= category.PriceAfter)
+                                                   .OrderBy(u => u.Price);
+                }
+                else if (category.PriceUpTo != 0 && category.PriceAfter != 0)
+                {
+                    ViewBag.Products = products.Where(p => p.Price >= category.PriceUpTo && p.Price <= category.PriceAfter)
+                                                   .OrderBy(u => u.Price);
+                }
+
                 return View(category);
             }
 
             ViewBag.Products = products.ToList().FindAll(cat => cat.Category == category.NameCategory);
-            if (category.PriceAscending == true && category.Price == 0)
+            if (category.PriceAscending == true && category.PriceUpTo == 0)
                 ViewBag.Products = products.ToList().FindAll(cat => cat.Category == category.NameCategory)
                                            .OrderBy(u => u.Price);
-            if (category.PriceAscending == true && category.Price > 0)
+            if (category.PriceAscending == true && category.PriceUpTo > 0)
             {
                 ViewBag.Products = products.ToList().FindAll(cat => cat.Category == category.NameCategory)
-                                           .Where(p => p.Price <= category.Price)
+                                           .Where(p => p.Price <= category.PriceUpTo)
                                            .OrderBy(u => u.Price);
             }
-            else if (category.PriceAscending == false && category.Price > 0)
+            else if (category.PriceAscending == false && category.PriceUpTo > 0)
             {
                 ViewBag.Products = products.ToList().FindAll(cat => cat.Category == category.NameCategory)
-                                           .Where(p => p.Price <= category.Price);
+                                           .Where(p => p.Price <= category.PriceUpTo);
             }
 
+            //Категории до и после
+            if(category.PriceUpTo == 0 && category.PriceAfter!=0)
+            {
+                ViewBag.Products = products.Where(p => p.Price >= category.PriceAfter && p.Category == category.NameCategory)
+                                               .OrderBy(u => u.Price);
+            } else if (category.PriceUpTo !=0 && category.PriceAfter != 0)
+            {
+                ViewBag.Products = products.Where(p => p.Price >= category.PriceUpTo && p.Price <= category.PriceAfter 
+                                                                                     && p.Category == category.NameCategory)
+                                               .OrderBy(u => u.Price);
+            }
 
             return View(category);
         }

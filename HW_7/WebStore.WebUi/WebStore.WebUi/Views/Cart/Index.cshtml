@@ -1,0 +1,9 @@
+﻿@model WebStore.WebUi.Models.Cart.CartViewModel
+
+@{   
+    Layout = null;
+}
+
+<a href="@Url.Action("Details", "Cart")" class="cart-info">Количество товаров в корзине: @Model.ItemsCount</a>
+
+

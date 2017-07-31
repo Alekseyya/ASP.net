@@ -1,0 +1,49 @@
+﻿@model WebStore.WebUi.Models.AuthenticationParamsViewModel
+
+@{
+    ViewBag.Title = "Login";
+    ViewBag.Header = "Форма для логина";
+
+}
+
+@section header {
+    <span>|</span>
+    @Html.ActionLink("Регистрация", "Register", "Authentication")
+}
+@using (Html.BeginForm("LogIn", "Authentication", FormMethod.Post))
+{
+    <div class="user-login">
+        <table class="aligned-table table">
+            <tr>
+                <td>
+                    Логин:
+                </td>
+                <td style="width: 60%;">
+                    @Html.TextBoxFor(x => x.User, new { id = "user", name = "user", style = "width: 100%" })
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="user-password">
+        <table class="aligned-table table">
+            <tr>
+                <td>
+                    Пароль:
+                </td>
+                <td style="width: 60%;">
+                    @Html.PasswordFor(x => x.Password, new { id = "password", name = "password", style = "width: 100%" })
+                </td>
+            </tr>
+        </table>
+    </div>
+    if (Model.IsAuthFailed)
+    {
+        <div class="auth-falied text-center">
+            Ошибка авторизации. Неверный логин или пароль.
+        </div>
+    }
+    <div class="error-messages text-center">
+        @Html.ValidationSummary(false)
+    </div>
+    <input type="submit" value="Login" style="width: 100px; margin: 0 0 0 45%;" />
+}

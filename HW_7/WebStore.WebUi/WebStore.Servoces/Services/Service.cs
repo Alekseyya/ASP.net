@@ -20,7 +20,7 @@ namespace WebStore.Services.Services
         
         public Service(IUnitOfWork unitOfWork)
         {
-            IUnitOfWork _unitOfWork;
+            _unitOfWork = unitOfWork;
         }
 
         public bool AddUser(UserDataContract user)

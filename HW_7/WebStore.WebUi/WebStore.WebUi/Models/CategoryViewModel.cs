@@ -17,7 +17,11 @@ namespace WebStore.WebUi.Models
 
         [Display(Name ="Цена до")]
         [UIHint("Decimal")]
-        public decimal Price { get; set; }
+        public decimal PriceUpTo { get; set; }
+
+        [Display(Name = "Цена после")]
+        [UIHint("Decimal")]
+        public decimal PriceAfter { get; set; }
 
         public IEnumerable<SelectListItem> ListName
         {

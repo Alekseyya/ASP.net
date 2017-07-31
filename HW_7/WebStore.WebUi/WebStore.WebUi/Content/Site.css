@@ -36,3 +36,9 @@ textarea {
 .filter__chekboxName{
     margin-right: 5px;
 }
+
+.header__menu-container{
+    display: flex;
+    align-items: center;
+}
+
