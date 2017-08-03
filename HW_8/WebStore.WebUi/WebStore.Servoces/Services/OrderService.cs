@@ -25,6 +25,10 @@ namespace WebStore.Services.Services
             Mapper.Initialize(o => o.CreateMap<OrderDetails, OrderDetailsDataContract>()
                     .ForMember("Product", opt => opt.MapFrom(c => c.Product.Name)));
             var orderDetails = Mapper.Map<IEnumerable<OrderDetails>, IEnumerable<OrderDetailsDataContract>>(_unitOfWork.OrderDetailsRepository.GetList());
+            foreach (var item in orderDetails)
+            {
+                item.TotalPrice = _unitOfWork.ProductRepository.GetList().FirstOrDefault(p => p.Name == item.Product).Price;
+            }
             return orderDetails.ToList();
         }
 
@@ -46,17 +50,24 @@ namespace WebStore.Services.Services
         #endregion
 
         #region Order
-        public List<OrderDataContract> GetOrders()
+        public IEnumerable<OrderDataContract> GetOrders()
         {
-            throw new NotImplementedException();
+            Mapper.Initialize(o => o.CreateMap<Order, OrderDataContract>()
+                    .ForMember("User", opt => opt.MapFrom(c => c.User.Name)));
+            var order = Mapper.Map<IEnumerable<Order>, IEnumerable<OrderDataContract>>(_unitOfWork.OrderRepository.GetList());
+                       
+            return order.ToList();
         }
         public OrderDataContract GetOrderById(int id)
         {
-            throw new NotImplementedException();
+            Mapper.Initialize(o => o.CreateMap<Order, OrderDataContract>()
+                    .ForMember("User", opt => opt.MapFrom(c => c.User.Name)));
+            var orderDetails = Mapper.Map<Order, OrderDataContract>(_unitOfWork.OrderRepository.GetItem(id));
+            return orderDetails;
         }
         public void DeleteOrder(OrderDataContract order)
         {
-            throw new NotImplementedException();
+            _unitOfWork.OrderRepository.Delete(order.Id);
         }
 
 

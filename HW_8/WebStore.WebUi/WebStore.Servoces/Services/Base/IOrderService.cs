@@ -14,7 +14,7 @@ namespace WebStore.Services.Services.Base
     {
         #region Order
         [OperationContract]
-        List<OrderDataContract> GetOrders();
+        IEnumerable<OrderDataContract> GetOrders();
 
         [OperationContract]
         OrderDataContract GetOrderById(int id);

@@ -22,21 +22,7 @@ namespace WebStore.Services.Services
         {
             _unitOfWork = unitOfWork;
         }
-
-        public bool AddUser(UserDataContract user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool DeleteUser(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool EditUser(UserDataContract user)
-        {
-            throw new NotImplementedException();
-        }
+                
 
         /// <summary>
         /// Получить список категорий
@@ -124,25 +110,7 @@ namespace WebStore.Services.Services
 
         }
 
-        public UserDataContract GetUser(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public UserDataContract GetUser(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<UserDataContract> GetUsers()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool RestoreUser(int id)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         #region oldService
         //ProductsRepository productRepo;

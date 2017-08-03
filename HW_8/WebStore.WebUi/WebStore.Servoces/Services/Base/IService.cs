@@ -40,26 +40,7 @@ namespace WebStore.Services.Services.Base
         [OperationContractAttribute(Name = "GetCategoryByName")]
         CategoryDataContract GetCategory(string name);
 
-        [OperationContract]
-        IEnumerable<UserDataContract> GetUsers();
-
-        [OperationContractAttribute(Name = "GetUserById")]
-        UserDataContract GetUser(int id);
-
-        [OperationContractAttribute(Name = "GetUserByName")]
-        UserDataContract GetUser(string name);
-
-        [OperationContract]
-        bool AddUser(UserDataContract user);
-
-        [OperationContract]
-        bool EditUser(UserDataContract user);
-
-        [OperationContract]
-        bool DeleteUser(int id);
-
-        [OperationContract]
-        bool RestoreUser(int id);
+        
 
         #region Future
         //[OperationContract]
