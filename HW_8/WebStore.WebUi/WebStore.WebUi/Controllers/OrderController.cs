@@ -27,8 +27,7 @@ namespace WebStore.WebUi.Controllers
                         OrderPrice = order.OrderPrice,
                         OrderDate = order.OrderDate
                      });
-                }
-                
+                }                
             }
             return View(orders.AsEnumerable()); 
         }
