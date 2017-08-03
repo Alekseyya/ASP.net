@@ -12,9 +12,17 @@ namespace WebStore.Domain.DataContracts.Service
     {
         [DataMember(IsRequired = true)]
         public int Id { get; set; }
+
+        [DataMember(IsRequired = true)]
+        public int OrderId { get; set; }
+
         [DataMember(IsRequired = true)]
         public string Product { get; set; }
+
         [DataMember(IsRequired = true)]
         public int Quantity { get; set; }
+
+        [DataMember(IsRequired = true)]
+        public decimal TotalPrice { get; set; }
     }
 }
