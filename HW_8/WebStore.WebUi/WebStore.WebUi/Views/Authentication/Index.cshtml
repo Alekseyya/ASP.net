@@ -24,6 +24,10 @@ else
         <div class="user__img"><img src="" alt=""></div>
         <div class="user__name">@Model.UserName</div>
         <div class="user__additional-info">@Model.AdditionalInfo.FirstName</div>
+        @if(User.Identity.Name == "Admin")
+        {
+            <div class="user__admin">@Html.ActionLink("Админка", "Index", new { area = "Admin", controller = "Admin" })</div>
+        }
     </div>
 </div>
 

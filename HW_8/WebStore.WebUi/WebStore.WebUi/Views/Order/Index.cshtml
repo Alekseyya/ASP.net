@@ -11,7 +11,7 @@
         <div class="user__id">@user.Id</div>
         <div class="user__name">@user.UserName</div>
         <div class="user__order-date">@user.OrderDate</div>
-        <div class="user__order-details">@Html.ActionLink("Детали заказа", "OrderHistoryDetails", "Order", new { id = @user.Id, orderDate = @user.OrderDate})</div>
+        <div class="user__order-details">@Html.ActionLink("Детали заказа", "OrderHistoryDetails", "Order", new { orderDate = user.OrderDate}, null)</div>
     </div>    
 }
 
