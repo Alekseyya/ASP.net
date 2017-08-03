@@ -1,0 +1,26 @@
+﻿@model IEnumerable<WebStore.WebUi.Models.Order.UserOrderViewModel>
+
+@{
+    Layout = null;
+}
+
+
+
+@foreach(var user in Model){
+    <div class="user__order-item">
+        <div class="user__id">@user.Id</div>
+        <div class="user__name">@user.UserName</div>
+        <div class="user__order-date">@user.OrderDate</div>
+        <div class="user__order-details">@Html.ActionLink("Детали заказа", "OrderHistoryDetails", "Order", new { id = @user.Id, orderDate = @user.OrderDate})</div>
+    </div>    
+}
+
+<div class="return">
+    <div class="return__catalog">
+        @Html.ActionLink("Вернуться к списку товаро", "Catalog", "Home")
+    </div>
+    <div class="return__cart">
+        @Html.ActionLink("Вернуться к списку товаро", "Details", "Cart")
+    </div>
+</div>
+

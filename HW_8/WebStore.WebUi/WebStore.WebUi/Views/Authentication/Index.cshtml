@@ -1,0 +1,30 @@
+﻿@model WebStore.WebUi.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@*@if (Model.IsAuthenticated)
+{
+    <span class="user-name">Пользователь: @Model.UserName</span>
+    @Html.ActionLink("LogOff", "Logoff", "Authentication", null, new { @class = "login" })
+}
+else
+{
+    @Html.ActionLink("LogIn", "LogIn", "Authentication", null, new { @class = "login" })
+    <span style="color: white">/</span>
+    @Html.ActionLink("Register", "Register", "Authentication", null, new { @class = "register" })
+}*@
+
+<div class="user">
+    <div class="user__info">
+        <div class="user__img"><img src="" alt=""></div>
+        <div class="user__name">@Model.UserName</div>
+        <div class="user__additional-info">@Model.AdditionalInfo.FirstName</div>
+    </div>
+</div>
+
+@Html.Action("Index", "Order")

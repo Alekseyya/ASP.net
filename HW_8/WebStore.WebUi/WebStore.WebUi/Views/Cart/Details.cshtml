@@ -1,0 +1,61 @@
+﻿@model WebStore.WebUi.Models.Cart.CartDetailsView
+@{
+    ViewBag.Title = "Корзина";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    @if (Model.CountList == 0)
+    {
+        <h4>Нет товаров в корзине.</h4>
+    }
+    else
+    {
+        <h4 class="text-center">Товары в корзине</h4>
+        <div>
+            <table class="aligned-table table">
+                <tr>
+                    <td>
+                        Номер
+                    </td>
+                    <td>
+                        Наименование продукта
+                    </td>
+                    <td>
+                        Цена
+                    </td>
+                    <td>
+                        Количество
+                    </td>
+                    <td>
+                        Описание
+                    </td>
+                    <td>
+                        Категория
+                    </td>
+                </tr>
+                @foreach (var prod in Model.ListProduct)
+                {
+                    <tr>
+                        <td>@prod.Number</td>
+                        <td>@prod.NameProduct</td>
+                        <td>@prod.Price</td>
+                        <td>@prod.Count</td>
+                        <td>@prod.Descriptions</td>
+                        <td>@prod.Category</td>
+                        <td>
+                            @Html.ActionLink("Удалить", "RemoveFromCart", new { id = prod.Id })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+    <div class="text-center">
+        @if (Model.CountList > 0)
+        {
+            @Html.ActionLink("Удалить все товары", "RemoveAll", "Cart")
+            <span>|</span>
+        }
+        @Html.ActionLink("Вернуться к списку товаров", "Catalog", "Home")
+    </div>
+</div>

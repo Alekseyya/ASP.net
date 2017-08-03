@@ -1,0 +1,142 @@
+﻿@model WebStore.WebUi.Models.CategoryViewModel
+
+@{
+    ViewBag.Title = "Catalog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @using (Html.BeginForm("Catalog", "Home", FormMethod.Post, new { @class = "filter" }))
+    {
+        <div class="filter__dropdown">
+            @Html.DropDownListFor(m => m.NameCategory, Model.ListName)
+        </div>
+        <div class="filter__chekbox">
+            <div class="filter__chekboxName">По возрастанию</div>
+            @Html.CheckBoxFor(m => m.Filter.PriceAscending)
+        </div>
+        <div class="filter__chekbox">
+            <div class="filter__chekboxName">По имени</div>
+            @Html.CheckBoxFor(m => m.Filter.ByName)
+        </div>
+        <div class="filter__priceTexBox">
+            <div class="filter__priceTexBoxName">
+                Цена до
+            </div>
+                @Html.TextBoxFor(m => m.Filter.PriceTo)
+        </div>
+        <div class="filter__priceTexBox">
+            <div class="filter__priceTexBoxName">
+                Цена после
+            </div>
+            @Html.TextBoxFor(m => m.Filter.PriceFrom)
+        </div>
+
+        <div class="filter__submit">
+            <input type="submit" value="Send" />
+        </div>        
+        
+    }
+
+<table class="table" id="grid">
+    <tr>
+        <th data-type="string">Name </th>
+        <th>Descriptions</th>
+        <th data-type="number">Price</th>
+        <th data-type="">Count</th>
+        <th></th>
+    </tr>
+    @foreach (var prod in Model.ListProduct)
+    {
+        <tr>
+            <td>@prod.Name</td>
+            <td>@prod.Descriptions</td>
+            <td>@prod.Price</td>
+            <td>@prod.Count</td>            
+            <td>@Html.ActionLink("Добавить в корзину", "AddToCart", "Cart", new { id = prod.Id }, null)</td>
+        </tr>
+    }
+
+
+</table>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Оповещение</h4>
+            </div>
+            <div class="modal-body">
+                У вас есть товары в корзине, <a href="@Url.Action("Details","Cart")">перейти</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @if (ViewBag.ShowModal)
+    {
+        <script>
+            $('#myModal').modal('show');
+        </script>
+    }
+
+}
+
+<script>
+    // сортировка таблицы
+    // использовать делегирование!
+    // должно быть масштабируемо:
+    // код работает без изменений при добавлении новых столбцов и строк
+
+    var grid = document.getElementById('grid');
+
+    grid.onclick = function (e) {
+        if (e.target.tagName != 'TH') return;
+
+        // Если TH -- сортируем
+        sortGrid(e.target.cellIndex, e.target.getAttribute('data-type'));
+    };
+
+    function sortGrid(colNum, type) {
+        var tbody = grid.getElementsByTagName('tbody')[0];
+
+        // Составить массив из TR
+        var rowsArray = [].slice.call(tbody.rows);
+
+        // определить функцию сравнения, в зависимости от типа
+        var compare;
+
+        switch (type) {
+            case 'number':
+                compare = function (rowA, rowB) {
+                    return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+                };
+                break;
+            case 'string':
+                compare = function (rowA, rowB) {
+                    return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML ? 1 : -1;
+                };
+                break;
+        }
+
+        // сортировать
+        rowsArray.sort(compare);
+
+        // Убрать tbody из большого DOM документа для лучшей производительности
+        grid.removeChild(tbody);
+
+        // добавить результат в нужном порядке в TBODY
+        // они автоматически будут убраны со старых мест и вставлены в правильном порядке
+        for (var i = 0; i < rowsArray.length; i++) {
+            tbody.appendChild(rowsArray[i]);
+        }
+
+        grid.appendChild(tbody);
+
+    }
+</script>

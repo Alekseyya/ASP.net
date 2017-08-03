@@ -1,0 +1,20 @@
+﻿@model WebStore.WebUi.Models.Order.UserOrderDetailsViewModel
+
+@{
+    ViewBag.Title = "OrderHistoryDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="order">
+    <div class="order__price">Model.OrderPrice</div>
+    @foreach(var item in Model.Details){
+        <div class="order__item">
+            <div class="order__item-name">@item.ProductName</div>
+            <div class="order__item-quantity">@item.Quantity</div>
+            <div class="order__item-total-price">@item.TotalPrice</div>
+        </div>
+        
+    }
+    
+</div>
+

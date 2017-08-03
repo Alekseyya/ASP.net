@@ -1,0 +1,67 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – приложение ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="header__logo">
+                <div class="header__img"></div>
+                <div class="header__adress"></div>
+                <div class="header__phone"></div>
+            </div>            
+            <div class="header__menu navbar navbar-inverse navbar-fixed-top">
+                <div class="header__menu-container container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Имя приложения", "Catalog", "Home", new { area = "" }, new { @class = "navbar-brand" })                        
+                    </div>
+                    <div class="header__register">
+                        @RenderSection("login", false)
+                    </div>                    
+                    <div class="navbar-collapse collapse">
+                        
+                        <ul class="nav navbar-nav">                            
+                            <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
+                            <li>@Html.ActionLink("О программе", "About", "Home")</li>
+                            <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
+                        </ul>
+                    </div>
+                    <div class="header__cart">
+                        @Html.Action("Index","Cart")
+                    </div>
+                    <div class="header__account">                       
+                        @Html.Partial("Partial")
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+            </footer>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
