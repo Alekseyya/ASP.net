@@ -1,0 +1,21 @@
+﻿@model IEnumerable<WebStore.WebUi.Areas.Admin.Models.UserViewModel>
+
+@{
+    Layout = null;
+}
+
+<div class="user">
+    <div class="user__add">@Html.ActionLink("Создать нового польщователя", "AddUser", "Admin")</div>
+  @foreach(var user in Model)
+{
+    <div class="user__id">@user.Id</div>
+    <div class="user__name">@user.Name</div>
+    <div class="user__group">@user.Group</div>
+    <div class="user__password">@user.Password</div>
+    <div class="user__is-deleted">@user.IsDeleted</div>
+    <div class="user__action">
+        <div class="user__edit">@Html.ActionLink("Изменить", "EditUser", new { id = user.Id})</div>
+        <div class="user__delete">@Html.ActionLink("Удалить", "DeleteUser", new { id = user.Id })</div>        
+    </div>
+}
+</div>
