@@ -1,0 +1,13 @@
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\bin\Debug\WebStore.Servoces.dll
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\bin\Debug\WebStore.Servoces.pdb
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\bin\Debug\AutoMapper.dll
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\bin\Debug\WebStore.DAL.dll
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\bin\Debug\WebStore.Domain.dll
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\bin\Debug\EntityFramework.dll
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\bin\Debug\WebStore.DAL.pdb
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\bin\Debug\WebStore.Domain.pdb
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\bin\Debug\AutoMapper.xml
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\bin\Debug\EntityFramework.xml
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\obj\Debug\WebStore.Services.csprojResolveAssemblyReference.cache
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\obj\Debug\WebStore.Servoces.dll
+c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Servoces\obj\Debug\WebStore.Servoces.pdb
