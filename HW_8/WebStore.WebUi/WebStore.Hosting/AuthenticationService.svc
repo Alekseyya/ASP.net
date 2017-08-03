@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WebStore.Hosting.AuthenticationService" CodeBehind="AuthenticationService.svc.cs" Factory="Ninject.Extensions.Wcf.NinjectServiceHostFactory" %>
