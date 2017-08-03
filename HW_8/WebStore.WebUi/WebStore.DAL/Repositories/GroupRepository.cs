@@ -19,12 +19,13 @@ namespace WebStore.DAL.Repositories
         }
         public void Create(Group item)
         {
-            throw new NotImplementedException();
+            _context.Groups.Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Group group = _context.Groups.FirstOrDefault(o => o.Id == id);
+            _context.Groups.Remove(group);
         }
 
         public Group GetItem(int id)

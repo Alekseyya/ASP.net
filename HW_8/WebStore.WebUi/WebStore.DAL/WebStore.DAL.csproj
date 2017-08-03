@@ -61,11 +61,15 @@
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
     <Compile Include="Repositories\Base\ICategoryRepository.cs" />
     <Compile Include="Repositories\Base\IGroupRepository.cs" />
+    <Compile Include="Repositories\Base\IOrderDetailsRepository.cs" />
+    <Compile Include="Repositories\Base\IOrderRepository.cs" />
     <Compile Include="Repositories\Base\IProductRepository.cs" />
     <Compile Include="Repositories\Base\IUnitOfWork.cs" />
     <Compile Include="Repositories\Base\IUserRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\GroupRepository.cs" />
+    <Compile Include="Repositories\OrderDetailsRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\ProductPepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
