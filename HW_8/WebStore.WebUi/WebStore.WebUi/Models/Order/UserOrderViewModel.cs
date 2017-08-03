@@ -10,5 +10,6 @@ namespace WebStore.WebUi.Models.Order
         public int Id { get; set; }
         public string UserName { get; set; }
         public DateTime OrderDate { get; set; }
+        public decimal OrderPrice { get; set; }
     }
 }
