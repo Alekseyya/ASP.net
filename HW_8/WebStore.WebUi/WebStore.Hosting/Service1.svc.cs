@@ -23,20 +23,7 @@ namespace WebStore.Hosting
             _service = new Services.Services.Service(repository);
         }
 
-        public bool AddUser(UserDataContract user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool DeleteUser(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool EditUser(UserDataContract user)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public IEnumerable<CategoryDataContract> GetCategories()
         {
@@ -67,25 +54,7 @@ namespace WebStore.Hosting
             return _service.GetProducts();
         }
 
-        public UserDataContract GetUser(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public UserDataContract GetUser(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<UserDataContract> GetUsers()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool RestoreUser(int id)
-        {
-            throw new NotImplementedException();
-        }
+        
 
        
 

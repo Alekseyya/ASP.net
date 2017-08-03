@@ -42,7 +42,7 @@ namespace WebStore.Hosting
         #endregion
 
         #region Order
-        public List<OrderDataContract> GetOrders()
+        public IEnumerable<OrderDataContract> GetOrders()
         {
             return _service.GetOrders();
         }
