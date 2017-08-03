@@ -134,6 +134,7 @@
   <ItemGroup>
     <Content Include="AuthenticationService.svc" />
     <Content Include="Global.asax" />
+    <Content Include="OrderService.svc" />
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -144,6 +145,9 @@
     <Compile Include="DI\WcfNinjectModule.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="OrderService.svc.cs">
+      <DependentUpon>OrderService.svc</DependentUpon>
     </Compile>
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
