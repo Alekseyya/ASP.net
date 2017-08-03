@@ -8,20 +8,13 @@ using System.Threading.Tasks;
 namespace WebStore.Domain.DataContracts.Service
 {
     [DataContract]
-    public class OrderDataContract
+    public class OrderDetailsDataContract
     {
-        [DataMember(IsRequired =true)]
+        [DataMember(IsRequired = true)]
         public int Id { get; set; }
-
         [DataMember(IsRequired = true)]
-        public string User { get; set; }
-
+        public string Product { get; set; }
         [DataMember(IsRequired = true)]
-        public DateTime OrderDate { get; set; }
-
-        [DataMember(IsRequired = true)]
-        public decimal OrderPrice { get; set; }
-
+        public int Quantity { get; set; }
     }
-   
 }
