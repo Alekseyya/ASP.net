@@ -19,16 +19,18 @@ else
     @Html.ActionLink("Register", "Register", "Authentication", null, new { @class = "register" })
 }*@
 
-<div class="user">
+<div class="user row">
     <div class="user__info">
-        <div class="user__img"><img src="" alt=""></div>
-        <div class="user__name">@Model.UserName</div>
-        <div class="user__additional-info">@Model.AdditionalInfo.FirstName</div>
+        <div class="user__img col-md-3"><img src="" alt=""></div>
+        <div class="user__name col-md-1">@Model.UserName</div>
+        <div class="user__additional-info col-md-4">@Model.AdditionalInfo</div>
         @if(User.Identity.Name == "Admin")
         {
-            <div class="user__admin">@Html.ActionLink("Админка", "Index", new { area = "Admin", controller = "Admin" })</div>
+            <div class="user__admin col-md-4">@Html.ActionLink("Админка", "Index", new { area = "Admin", controller = "Admin" })</div>
         }
     </div>
 </div>
 
-@Html.Action("Index", "Order")
+<div class="orders">
+    @Html.Action("Index", "Order")
+</div>
