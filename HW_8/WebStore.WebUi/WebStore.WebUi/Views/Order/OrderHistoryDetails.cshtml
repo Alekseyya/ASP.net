@@ -6,15 +6,21 @@
 }
 
 <div class="order">
-    <div class="order__price">@Model.OrderPrice</div>
+    <div class="order__price"> Общая стоимость - @Model.OrderPrice</div>
+    <div class="product row">
+        <div class="product__name col-md-4">Наименование</div>
+        <div class="product__count col-md-4">Количество</div>
+        <div class="product__total-price col-md-2">Цена за единицу</div>
+        <div class="product__price col-md-2">Цена</div>
+    </div>
     @foreach(var item in Model.Details){
-        <div class="order__item">
-            <div class="order__item-name">@item.ProductName</div>
-            <div class="order__item-quantity">@item.Quantity</div>
-            <div class="order__item-total-price">@item.TotalPrice</div>
+        <div class="order__item row">
+            <div class="order__item-name col-md-4">@item.ProductName</div>
+            <div class="order__item-quantity col-md-4">@item.Quantity</div>
+            <div class="order__item-total-price col-md-2">@item.TotalPrice</div>
+            <div class="order__item-price col-md-2">@item.Price</div>
         </div>
         
-    }
-    
+    }    
 </div>
 
