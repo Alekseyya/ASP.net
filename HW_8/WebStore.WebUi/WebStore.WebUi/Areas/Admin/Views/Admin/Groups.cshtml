@@ -4,16 +4,20 @@
     Layout = null;
 }
 
-<div class="group">
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
     @foreach(var group in Model )
     {
-        <div class="group__id">
+        <div class="group row">
+        <div class="group__id col-md-1">
             @group.Id
         </div>
-        <div class="group__name">
+        <div class="group__name col-md-2">
             @group.Name
         </div>
-        <div class="group__edit">@Html.ActionLink("Изменить", "EditGroup", new { id = user.Id})</div>
-        <div class="group__delete">@Html.ActionLink("Удалить", "DeleteGroup", new { id = user.Id })</div>        
+        <div class="group__edit col-md-2">@Html.ActionLink("Изменить", "EditGroup", new { id = group.Id})</div>
+        <div class="group__delete col-md-2">@Html.ActionLink("Удалить", "DeleteGroup", new { id = group.Id })</div>        
+        </div>
     }    
-</div>
+

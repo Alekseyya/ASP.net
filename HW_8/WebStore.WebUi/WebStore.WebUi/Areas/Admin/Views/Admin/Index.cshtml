@@ -4,15 +4,30 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="users">
-        @Html.Action("Users", "Admin")
+    <div class="wrapper">
+        <div class="header-admin container-fluid">
+            <div class="header-admin__menu container row">
+                <div class="header-admin__index col-md-2">@Html.ActionLink("Главная", "Index", "Admin")</div>
+                <div class="header-admin__groups col-md-3">@Html.ActionLink("Группы", "Groups", "Admin")</div>
+                <div class="header-admin__users col-dm-3">@Html.ActionLink("Пользователи", "Users", "Admin")</div>
+            </div>
+        </div>
+        <div class="wrapper-body container">
+            <div class="groups">
+                @Html.Action("Groups", "Admin")
+            </div>
+            <div class="users">
+                @Html.Action("Users", "Admin")
+            </div>
+        </div>
     </div>
     
 </body>

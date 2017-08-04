@@ -115,17 +115,17 @@ namespace WebStore.WebUi.Areas.Admin.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult AddGroup()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public ActionResult AddGroup()
+        //{
+        //    return View();
+        //}
 
-        [HttpGet]
-        public ActionResult EditGroup(int id)
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public ActionResult EditGroup(int id)
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         public ActionResult EditGroup(GroupViewModel group)
