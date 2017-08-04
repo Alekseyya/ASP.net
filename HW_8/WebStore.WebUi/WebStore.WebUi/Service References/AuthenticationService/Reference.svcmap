@@ -25,6 +25,7 @@
     <MetadataFile FileName="AuthenticationService.wsdl" MetadataType="Wsdl" ID="bce2f0d0-1941-492f-9a64-93ccd6b8a480" SourceId="1" SourceUrl="http://localhost:60041/AuthenticationService.svc?wsdl" />
     <MetadataFile FileName="AuthenticationService.xsd" MetadataType="Schema" ID="de4af35d-174a-44ce-95c6-db1e6fdded28" SourceId="1" SourceUrl="http://localhost:60041/AuthenticationService.svc?xsd=xsd0" />
     <MetadataFile FileName="AuthenticationService1.xsd" MetadataType="Schema" ID="fdc71744-640d-4175-95bf-b97dd54f93e3" SourceId="1" SourceUrl="http://localhost:60041/AuthenticationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AuthenticationService2.xsd" MetadataType="Schema" ID="2800b079-eb09-4a2e-b38b-ed984b0f45c3" SourceId="1" SourceUrl="http://localhost:60041/AuthenticationService.svc?xsd=xsd2" />
     <MetadataFile FileName="AuthenticationService.disco" MetadataType="Disco" ID="4922a2ed-7353-4ce0-a386-f7a27af951bc" SourceId="1" SourceUrl="http://localhost:60041/AuthenticationService.svc?disco" />
   </Metadata>
   <Extensions>

@@ -9,7 +9,174 @@
 //------------------------------------------------------------------------------
 
 namespace WebStore.WebUi.AuthenticationService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GroupDataContract", Namespace="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service")]
+    [System.SerializableAttribute()]
+    public partial class GroupDataContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserDataContract", Namespace="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service")]
+    [System.SerializableAttribute()]
+    public partial class UserDataContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string GroupField;
+        
+        private int IdField;
+        
+        private bool IsDeletedField;
+        
+        private string NameField;
+        
+        private string PasswordField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Group {
+            get {
+                return this.GroupField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GroupField, value) != true)) {
+                    this.GroupField = value;
+                    this.RaisePropertyChanged("Group");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool IsDeleted {
+            get {
+                return this.IsDeletedField;
+            }
+            set {
+                if ((this.IsDeletedField.Equals(value) != true)) {
+                    this.IsDeletedField = value;
+                    this.RaisePropertyChanged("IsDeleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AuthenticationService.IAuthenticationService")]
@@ -26,6 +193,78 @@ namespace WebStore.WebUi.AuthenticationService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/RegisterUser", ReplyAction="http://tempuri.org/IAuthenticationService/RegisterUserResponse")]
         System.Threading.Tasks.Task<bool> RegisterUserAsync(string userName, string userPassword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/GetGroups", ReplyAction="http://tempuri.org/IAuthenticationService/GetGroupsResponse")]
+        WebStore.WebUi.AuthenticationService.GroupDataContract[] GetGroups();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/GetGroups", ReplyAction="http://tempuri.org/IAuthenticationService/GetGroupsResponse")]
+        System.Threading.Tasks.Task<WebStore.WebUi.AuthenticationService.GroupDataContract[]> GetGroupsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/UserInGroup", ReplyAction="http://tempuri.org/IAuthenticationService/UserInGroupResponse")]
+        bool UserInGroup(string userName, string groupName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/UserInGroup", ReplyAction="http://tempuri.org/IAuthenticationService/UserInGroupResponse")]
+        System.Threading.Tasks.Task<bool> UserInGroupAsync(string userName, string groupName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/GetGroupById", ReplyAction="http://tempuri.org/IAuthenticationService/GetGroupByIdResponse")]
+        WebStore.WebUi.AuthenticationService.GroupDataContract GetGroupById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/GetGroupById", ReplyAction="http://tempuri.org/IAuthenticationService/GetGroupByIdResponse")]
+        System.Threading.Tasks.Task<WebStore.WebUi.AuthenticationService.GroupDataContract> GetGroupByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/UpdateGroup", ReplyAction="http://tempuri.org/IAuthenticationService/UpdateGroupResponse")]
+        void UpdateGroup(WebStore.WebUi.AuthenticationService.GroupDataContract group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/UpdateGroup", ReplyAction="http://tempuri.org/IAuthenticationService/UpdateGroupResponse")]
+        System.Threading.Tasks.Task UpdateGroupAsync(WebStore.WebUi.AuthenticationService.GroupDataContract group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/DeleteGroup", ReplyAction="http://tempuri.org/IAuthenticationService/DeleteGroupResponse")]
+        void DeleteGroup(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/DeleteGroup", ReplyAction="http://tempuri.org/IAuthenticationService/DeleteGroupResponse")]
+        System.Threading.Tasks.Task DeleteGroupAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/GetUsers", ReplyAction="http://tempuri.org/IAuthenticationService/GetUsersResponse")]
+        WebStore.WebUi.AuthenticationService.UserDataContract[] GetUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/GetUsers", ReplyAction="http://tempuri.org/IAuthenticationService/GetUsersResponse")]
+        System.Threading.Tasks.Task<WebStore.WebUi.AuthenticationService.UserDataContract[]> GetUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/GetUserById", ReplyAction="http://tempuri.org/IAuthenticationService/GetUserByIdResponse")]
+        WebStore.WebUi.AuthenticationService.UserDataContract GetUserById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/GetUserById", ReplyAction="http://tempuri.org/IAuthenticationService/GetUserByIdResponse")]
+        System.Threading.Tasks.Task<WebStore.WebUi.AuthenticationService.UserDataContract> GetUserByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/GetUserByName", ReplyAction="http://tempuri.org/IAuthenticationService/GetUserByNameResponse")]
+        WebStore.WebUi.AuthenticationService.UserDataContract GetUserByName(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/GetUserByName", ReplyAction="http://tempuri.org/IAuthenticationService/GetUserByNameResponse")]
+        System.Threading.Tasks.Task<WebStore.WebUi.AuthenticationService.UserDataContract> GetUserByNameAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/AddUser", ReplyAction="http://tempuri.org/IAuthenticationService/AddUserResponse")]
+        bool AddUser(WebStore.WebUi.AuthenticationService.UserDataContract user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/AddUser", ReplyAction="http://tempuri.org/IAuthenticationService/AddUserResponse")]
+        System.Threading.Tasks.Task<bool> AddUserAsync(WebStore.WebUi.AuthenticationService.UserDataContract user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/EditUser", ReplyAction="http://tempuri.org/IAuthenticationService/EditUserResponse")]
+        bool EditUser(WebStore.WebUi.AuthenticationService.UserDataContract user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/EditUser", ReplyAction="http://tempuri.org/IAuthenticationService/EditUserResponse")]
+        System.Threading.Tasks.Task<bool> EditUserAsync(WebStore.WebUi.AuthenticationService.UserDataContract user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/DeleteUser", ReplyAction="http://tempuri.org/IAuthenticationService/DeleteUserResponse")]
+        bool DeleteUser(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/DeleteUser", ReplyAction="http://tempuri.org/IAuthenticationService/DeleteUserResponse")]
+        System.Threading.Tasks.Task<bool> DeleteUserAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/RestoreUser", ReplyAction="http://tempuri.org/IAuthenticationService/RestoreUserResponse")]
+        bool RestoreUser(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationService/RestoreUser", ReplyAction="http://tempuri.org/IAuthenticationService/RestoreUserResponse")]
+        System.Threading.Tasks.Task<bool> RestoreUserAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +308,102 @@ namespace WebStore.WebUi.AuthenticationService {
         
         public System.Threading.Tasks.Task<bool> RegisterUserAsync(string userName, string userPassword) {
             return base.Channel.RegisterUserAsync(userName, userPassword);
+        }
+        
+        public WebStore.WebUi.AuthenticationService.GroupDataContract[] GetGroups() {
+            return base.Channel.GetGroups();
+        }
+        
+        public System.Threading.Tasks.Task<WebStore.WebUi.AuthenticationService.GroupDataContract[]> GetGroupsAsync() {
+            return base.Channel.GetGroupsAsync();
+        }
+        
+        public bool UserInGroup(string userName, string groupName) {
+            return base.Channel.UserInGroup(userName, groupName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UserInGroupAsync(string userName, string groupName) {
+            return base.Channel.UserInGroupAsync(userName, groupName);
+        }
+        
+        public WebStore.WebUi.AuthenticationService.GroupDataContract GetGroupById(int id) {
+            return base.Channel.GetGroupById(id);
+        }
+        
+        public System.Threading.Tasks.Task<WebStore.WebUi.AuthenticationService.GroupDataContract> GetGroupByIdAsync(int id) {
+            return base.Channel.GetGroupByIdAsync(id);
+        }
+        
+        public void UpdateGroup(WebStore.WebUi.AuthenticationService.GroupDataContract group) {
+            base.Channel.UpdateGroup(group);
+        }
+        
+        public System.Threading.Tasks.Task UpdateGroupAsync(WebStore.WebUi.AuthenticationService.GroupDataContract group) {
+            return base.Channel.UpdateGroupAsync(group);
+        }
+        
+        public void DeleteGroup(int id) {
+            base.Channel.DeleteGroup(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteGroupAsync(int id) {
+            return base.Channel.DeleteGroupAsync(id);
+        }
+        
+        public WebStore.WebUi.AuthenticationService.UserDataContract[] GetUsers() {
+            return base.Channel.GetUsers();
+        }
+        
+        public System.Threading.Tasks.Task<WebStore.WebUi.AuthenticationService.UserDataContract[]> GetUsersAsync() {
+            return base.Channel.GetUsersAsync();
+        }
+        
+        public WebStore.WebUi.AuthenticationService.UserDataContract GetUserById(int id) {
+            return base.Channel.GetUserById(id);
+        }
+        
+        public System.Threading.Tasks.Task<WebStore.WebUi.AuthenticationService.UserDataContract> GetUserByIdAsync(int id) {
+            return base.Channel.GetUserByIdAsync(id);
+        }
+        
+        public WebStore.WebUi.AuthenticationService.UserDataContract GetUserByName(string name) {
+            return base.Channel.GetUserByName(name);
+        }
+        
+        public System.Threading.Tasks.Task<WebStore.WebUi.AuthenticationService.UserDataContract> GetUserByNameAsync(string name) {
+            return base.Channel.GetUserByNameAsync(name);
+        }
+        
+        public bool AddUser(WebStore.WebUi.AuthenticationService.UserDataContract user) {
+            return base.Channel.AddUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddUserAsync(WebStore.WebUi.AuthenticationService.UserDataContract user) {
+            return base.Channel.AddUserAsync(user);
+        }
+        
+        public bool EditUser(WebStore.WebUi.AuthenticationService.UserDataContract user) {
+            return base.Channel.EditUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EditUserAsync(WebStore.WebUi.AuthenticationService.UserDataContract user) {
+            return base.Channel.EditUserAsync(user);
+        }
+        
+        public bool DeleteUser(int id) {
+            return base.Channel.DeleteUser(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteUserAsync(int id) {
+            return base.Channel.DeleteUserAsync(id);
+        }
+        
+        public bool RestoreUser(int id) {
+            return base.Channel.RestoreUser(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RestoreUserAsync(int id) {
+            return base.Channel.RestoreUserAsync(id);
         }
     }
 }
