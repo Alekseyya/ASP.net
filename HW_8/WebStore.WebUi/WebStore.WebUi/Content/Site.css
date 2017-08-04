@@ -42,3 +42,16 @@ textarea {
     align-items: center;
 }
 
+.orders{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.header-admin{
+   background: black;
+}
+.header-admin__menu{
+    margin: 0 auto;
+}
+.user{
+    margin-top: 10px;
+}
