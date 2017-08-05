@@ -23,10 +23,16 @@ else
     <div class="user__info">
         <div class="user__img col-md-3"><img src="" alt=""></div>
         <div class="user__name col-md-1">@Model.UserName</div>
-        <div class="user__additional-info col-md-4">@Model.AdditionalInfo</div>
+        <div class="user__additional-info col-md-5">
+            @*<div class="user__id">@Model.AdditionalInfo.Id</div>*@ 
+            <div class="user__first-name col-md-4">@Model.AdditionalInfo.FirstName</div>
+            <div class="user__last-name col-md-4">@Model.AdditionalInfo.LastName</div>
+            <div class="user__age col-md-4">@Model.AdditionalInfo.Age</div>
+            <div class="user__email col-md-4">@Model.AdditionalInfo.Email</div>
+        </div>
         @if(User.Identity.Name == "Admin")
         {
-            <div class="user__admin col-md-4">@Html.ActionLink("Админка", "Index", new { area = "Admin", controller = "Admin" })</div>
+            <div class="user__admin col-md-3">@Html.ActionLink("Админка", "Index", new { area = "Admin", controller = "Admin" })</div>
         }
     </div>
 </div>

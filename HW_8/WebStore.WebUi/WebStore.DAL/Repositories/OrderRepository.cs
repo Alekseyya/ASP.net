@@ -18,8 +18,9 @@ namespace WebStore.DAL.Repositories
             _context = context;
         }
         public void Create(Order item)
-        {
+        {            
             _context.Orders.Add(item);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)

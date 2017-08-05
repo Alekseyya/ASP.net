@@ -13,7 +13,13 @@ namespace WebStore.WebUi.Controllers
     {
         public ActionResult Index()
         {
-            return View(new UserViewModel { IsAuthenticated = User.Identity.IsAuthenticated, UserName = User.Identity.Name });
+            return View(new UserViewModel {
+                IsAuthenticated = User.Identity.IsAuthenticated, UserName = User.Identity.Name,
+                AdditionalInfo = new UserAdditionInformationViewModel
+                {
+                    Id = 2, Age =15, Email = "namager@gmail.com", FirstName ="Aleksey", LastName="Gridin"
+                }
+            });
         }
         public ActionResult Logoff()
         {

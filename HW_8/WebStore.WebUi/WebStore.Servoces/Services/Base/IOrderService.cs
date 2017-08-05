@@ -14,6 +14,8 @@ namespace WebStore.Services.Services.Base
     {
         #region Order
         [OperationContract]
+        void AddOrder(OrderDataContract order);
+        [OperationContract]
         IEnumerable<OrderDataContract> GetOrders();
 
         [OperationContract]
@@ -27,6 +29,9 @@ namespace WebStore.Services.Services.Base
         #endregion
 
         #region OrderDetails
+        [OperationContract]
+        void AddOrderDetails(List<OrderDetailsDataContract> order);
+
         [OperationContract]
         List<OrderDetailsDataContract> GetOrderDetails();
 

@@ -10,6 +10,7 @@ namespace WebStore.Domain.DataContracts.Service
     [DataContract]
     public class OrderDetailsDataContract
     {
+        //id товара
         [DataMember(IsRequired = true)]
         public int Id { get; set; }
 

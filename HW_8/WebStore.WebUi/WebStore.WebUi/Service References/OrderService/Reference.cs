@@ -210,6 +210,12 @@ namespace WebStore.WebUi.OrderService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="OrderService.IOrderService")]
     public interface IOrderService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/AddOrder", ReplyAction="http://tempuri.org/IOrderService/AddOrderResponse")]
+        void AddOrder(WebStore.WebUi.OrderService.OrderDataContract order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/AddOrder", ReplyAction="http://tempuri.org/IOrderService/AddOrderResponse")]
+        System.Threading.Tasks.Task AddOrderAsync(WebStore.WebUi.OrderService.OrderDataContract order);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetOrders", ReplyAction="http://tempuri.org/IOrderService/GetOrdersResponse")]
         WebStore.WebUi.OrderService.OrderDataContract[] GetOrders();
         
@@ -233,6 +239,12 @@ namespace WebStore.WebUi.OrderService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/DeleteOrder", ReplyAction="http://tempuri.org/IOrderService/DeleteOrderResponse")]
         System.Threading.Tasks.Task DeleteOrderAsync(WebStore.WebUi.OrderService.OrderDataContract order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/AddOrderDetails", ReplyAction="http://tempuri.org/IOrderService/AddOrderDetailsResponse")]
+        void AddOrderDetails(WebStore.WebUi.OrderService.OrderDetailsDataContract[] order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/AddOrderDetails", ReplyAction="http://tempuri.org/IOrderService/AddOrderDetailsResponse")]
+        System.Threading.Tasks.Task AddOrderDetailsAsync(WebStore.WebUi.OrderService.OrderDetailsDataContract[] order);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetOrderDetails", ReplyAction="http://tempuri.org/IOrderService/GetOrderDetailsResponse")]
         WebStore.WebUi.OrderService.OrderDetailsDataContract[] GetOrderDetails();
@@ -286,6 +298,14 @@ namespace WebStore.WebUi.OrderService {
                 base(binding, remoteAddress) {
         }
         
+        public void AddOrder(WebStore.WebUi.OrderService.OrderDataContract order) {
+            base.Channel.AddOrder(order);
+        }
+        
+        public System.Threading.Tasks.Task AddOrderAsync(WebStore.WebUi.OrderService.OrderDataContract order) {
+            return base.Channel.AddOrderAsync(order);
+        }
+        
         public WebStore.WebUi.OrderService.OrderDataContract[] GetOrders() {
             return base.Channel.GetOrders();
         }
@@ -316,6 +336,14 @@ namespace WebStore.WebUi.OrderService {
         
         public System.Threading.Tasks.Task DeleteOrderAsync(WebStore.WebUi.OrderService.OrderDataContract order) {
             return base.Channel.DeleteOrderAsync(order);
+        }
+        
+        public void AddOrderDetails(WebStore.WebUi.OrderService.OrderDetailsDataContract[] order) {
+            base.Channel.AddOrderDetails(order);
+        }
+        
+        public System.Threading.Tasks.Task AddOrderDetailsAsync(WebStore.WebUi.OrderService.OrderDetailsDataContract[] order) {
+            return base.Channel.AddOrderDetailsAsync(order);
         }
         
         public WebStore.WebUi.OrderService.OrderDetailsDataContract[] GetOrderDetails() {

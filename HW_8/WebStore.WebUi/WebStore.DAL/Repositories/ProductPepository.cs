@@ -33,6 +33,11 @@ namespace WebStore.DAL.Repositories
             return db.Products.Include("Category").FirstOrDefault(o => o.Id == id);
         }
 
+        public Product GetItemByName(string name)
+        {
+            return db.Products.Include("Category").FirstOrDefault(o => o.Name == name);
+        }
+
         public IEnumerable<Product> GetList()
         {
             var tt = db.Products.Include("Category").ToList();

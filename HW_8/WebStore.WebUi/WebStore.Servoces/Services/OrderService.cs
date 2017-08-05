@@ -20,6 +20,25 @@ namespace WebStore.Services.Services
         }
 
         #region OrderDetails
+        public void AddOrderDetails(List<OrderDetailsDataContract> order)
+        {
+            Mapper.Initialize(o => o.CreateMap<OrderDetailsDataContract, OrderDetails>()
+                    .ForMember("Product", opt => opt.Ignore())
+                    .ForMember(om => om.ProductId, opt => opt.MapFrom(c => c.Id)));
+            var orderMap = Mapper.Map<IEnumerable<OrderDetailsDataContract>, IEnumerable<OrderDetails>>(order);
+            List<OrderDetails> ordersMap = new List<OrderDetails>();
+            foreach (var item in orderMap)
+            {
+                ordersMap.Add(new OrderDetails
+                {
+                    ProductId = item.ProductId,
+                    Quantity = item.Quantity,
+                    OrderId = item.OrderId
+                });
+            }
+            //по имени
+            _unitOfWork.OrderDetailsRepository.Create(ordersMap);
+        }
         public List<OrderDetailsDataContract> GetOrderDetails()
         {
             Mapper.Initialize(o => o.CreateMap<OrderDetails, OrderDetailsDataContract>()
@@ -46,10 +65,18 @@ namespace WebStore.Services.Services
         public void DeleteOrderDetails(OrderDetailsDataContract order)
         {
             _unitOfWork.OrderDetailsRepository.Delete(order.Id);
-        } 
+        }
         #endregion
 
         #region Order
+        public void AddOrder(OrderDataContract order)
+        {
+            Mapper.Initialize(o => o.CreateMap<OrderDataContract, Order>()
+                    .ForMember("User", opt => opt.Ignore()));
+            var orderMap = Mapper.Map<OrderDataContract, Order>(order);
+            orderMap.UserId = _unitOfWork.UserRepository.GetItemByName(order.User).Id;
+            _unitOfWork.OrderRepository.Create(orderMap);
+        }
         public IEnumerable<OrderDataContract> GetOrders()
         {
             Mapper.Initialize(o => o.CreateMap<Order, OrderDataContract>()
@@ -74,7 +101,8 @@ namespace WebStore.Services.Services
         public void UpdateOrder(OrderDataContract order)
         {
             throw new NotImplementedException();
-        } 
+        }
+        
         #endregion
 
 

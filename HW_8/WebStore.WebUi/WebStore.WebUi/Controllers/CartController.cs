@@ -88,10 +88,11 @@ namespace WebStore.WebUi.Controllers
             var number = 0;
             foreach (var item in TransformCart().Items)
             {
+                number++;
                 list.Add(new CardListDetailsView
                 {
                     Id = item.Key.Id,
-                    Number = number + 1,
+                    Number = number,
                     NameProduct = item.Key.Name,
                     Price = item.Key.Price,
                     Descriptions = item.Key.Descriptions,

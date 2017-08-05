@@ -26,7 +26,10 @@ namespace WebStore.Hosting
         {
             return _service.GetOrderDetails();
         }
-
+        public void AddOrderDetails(List<OrderDetailsDataContract> order)
+        {
+            _service.AddOrderDetails(order);
+        }
         public OrderDetailsDataContract GetOrderDetailsById(int id)
         {
             return _service.GetOrderDetailsById(id);
@@ -58,7 +61,14 @@ namespace WebStore.Hosting
         public void UpdateOrder(OrderDataContract order)
         {
             _service.UpdateOrder(order);
-        } 
+        }
+
+        public void AddOrder(OrderDataContract order)
+        {
+            _service.AddOrder(order);
+        }
+
+        
         #endregion
 
 

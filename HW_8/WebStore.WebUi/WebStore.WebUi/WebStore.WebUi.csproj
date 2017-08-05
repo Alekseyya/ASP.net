@@ -154,6 +154,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Models\GroupViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\UserViewModel.cs" />
     <Compile Include="Code\CartHelper.cs" />
     <Compile Include="Code\CatalogLogic.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
@@ -180,6 +184,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\OrderService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\service\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -198,6 +207,14 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Admin\Users.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AddUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AddGroup.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditGroup.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Groups.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -217,6 +234,31 @@
     <None Include="Service References\AuthenticationService\AuthenticationService1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\AuthenticationService\AuthenticationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\AuthenticationService\WebStore.WebUi.AuthenticationService.GroupDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AuthenticationService\WebStore.WebUi.AuthenticationService.UserDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\OrderService\OrderService.wsdl" />
+    <None Include="Service References\OrderService\OrderService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderService\OrderService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderService\OrderService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\OrderService\WebStore.WebUi.OrderService.OrderDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\OrderService\WebStore.WebUi.OrderService.OrderDetailsDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\service\Service1.disco" />
     <None Include="Service References\service\configuration91.svcinfo" />
     <None Include="Service References\service\configuration.svcinfo" />
@@ -228,6 +270,13 @@
     <None Include="Service References\AuthenticationService\configuration91.svcinfo" />
     <None Include="Service References\AuthenticationService\configuration.svcinfo" />
     <None Include="Service References\AuthenticationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\OrderService\OrderService.disco" />
+    <None Include="Service References\OrderService\configuration91.svcinfo" />
+    <None Include="Service References\OrderService\configuration.svcinfo" />
+    <None Include="Service References\OrderService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -278,6 +327,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -292,6 +342,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AuthenticationService\" />
+    <WCFMetadataStorage Include="Service References\OrderService\" />
     <WCFMetadataStorage Include="Service References\service\" />
   </ItemGroup>
   <PropertyGroup>

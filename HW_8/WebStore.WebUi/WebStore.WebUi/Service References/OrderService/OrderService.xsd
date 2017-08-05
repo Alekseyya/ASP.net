@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:60041/OrderService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" />
+  <xs:element name="AddOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="order" nillable="true" type="q1:OrderDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrderResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetOrders">
     <xs:complexType>
       <xs:sequence />
@@ -9,7 +21,7 @@
   <xs:element name="GetOrdersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetOrdersResult" nillable="true" type="q1:ArrayOfOrderDataContract" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetOrdersResult" nillable="true" type="q2:ArrayOfOrderDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -23,14 +35,14 @@
   <xs:element name="GetOrderByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetOrderByIdResult" nillable="true" type="q2:OrderDataContract" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetOrderByIdResult" nillable="true" type="q3:OrderDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateOrder">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="order" nillable="true" type="q3:OrderDataContract" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="order" nillable="true" type="q4:OrderDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -42,11 +54,23 @@
   <xs:element name="DeleteOrder">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="order" nillable="true" type="q4:OrderDataContract" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="order" nillable="true" type="q5:OrderDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteOrderResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrderDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="order" nillable="true" type="q6:ArrayOfOrderDetailsDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrderDetailsResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -59,7 +83,7 @@
   <xs:element name="GetOrderDetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetOrderDetailsResult" nillable="true" type="q5:ArrayOfOrderDetailsDataContract" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetOrderDetailsResult" nillable="true" type="q7:ArrayOfOrderDetailsDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -73,14 +97,14 @@
   <xs:element name="GetOrderDetailsByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetOrderDetailsByIdResult" nillable="true" type="q6:OrderDetailsDataContract" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="GetOrderDetailsByIdResult" nillable="true" type="q8:OrderDetailsDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateOrderDetails">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="order" nillable="true" type="q7:OrderDetailsDataContract" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="order" nillable="true" type="q9:OrderDetailsDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -92,7 +116,7 @@
   <xs:element name="DeleteOrderDetails">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="order" nillable="true" type="q8:OrderDetailsDataContract" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WebStore.Domain.DataContracts.Service" minOccurs="0" name="order" nillable="true" type="q10:OrderDetailsDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

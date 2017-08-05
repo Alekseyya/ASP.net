@@ -9,5 +9,6 @@ namespace WebStore.DAL.Repositories.Base
 {
     public interface IOrderDetailsRepository : IBaseRepository<OrderDetails>
     {
+        void Create(List<OrderDetails> items);
     }
 }

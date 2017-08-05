@@ -121,8 +121,10 @@ namespace WebStore.Services.Services
 
         public bool EditUser(UserDataContract user)
         {
-            Mapper.Initialize(o => o.CreateMap<UserDataContract, User>());
+            Mapper.Initialize(o => o.CreateMap<UserDataContract, User>()
+            .ForMember("Group", op=>op.Ignore()));
             var userNew = Mapper.Map<UserDataContract, User>(user);
+            userNew.GroupId = _unitOfWork.GroupRepository.GetList().FirstOrDefault(u => u.Name == user.Group).Id;
             _unitOfWork.UserRepository.Update(userNew);
             return true;
         }

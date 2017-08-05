@@ -17,9 +17,34 @@ namespace WebStore.DAL.Repositories
         {
             _context = context;
         }
+
         public void Create(OrderDetails item)
         {
             _context.OrderDetails.Add(item);
+        }
+
+        public void Create(List<OrderDetails> orders)
+        {
+            var maxIdObj = _context.OrderDetails.OrderByDescending(o => o.Id).FirstOrDefault();
+            var maxId = 0;
+            if (maxIdObj == null)
+            {
+                maxId = 0;
+            }else { maxId = _context.OrderDetails.Max(id => id.Id); }
+            foreach (var item in orders)
+            {
+                ++maxId;
+                OrderDetails order = new OrderDetails
+                {
+                    Id = maxId,
+                    ProductId = item.ProductId,
+                    Quantity = item.Quantity,
+                    OrderId = item.OrderId
+                };
+                _context.OrderDetails.Add(order);
+                _context.SaveChanges();
+            }
+
         }
 
         public void Delete(int id)
