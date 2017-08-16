@@ -13,7 +13,7 @@ namespace WebStore.Domain.Entities
         public int Id { get; set; }
 
         public int MarkaId { get; set; }
-        public Marka Marka { get; set; }
+        public Mark Mark { get; set; }
 
         public string Name { get; set; }
         public string Years_Body { get; set; }
@@ -53,7 +53,7 @@ namespace WebStore.Domain.Entities
             Property(x => x.TecDoc)
                .IsRequired();
 
-            HasRequired(x => x.Marka);//[ForeignKey]
+            HasRequired(x => x.Mark);//[ForeignKey]
             HasRequired(x => x.Photo);
         }
     }
