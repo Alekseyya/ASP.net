@@ -14,7 +14,7 @@ namespace WebStore.Domain.Entities
         public int Id { get; set; }
 
         public int MarkId { get; set; }
-        public Marka Mark { get; set; }
+        public Mark Mark { get; set; }
 
         public string Name { get; set; }
         public string Years_Body { get; set; }
