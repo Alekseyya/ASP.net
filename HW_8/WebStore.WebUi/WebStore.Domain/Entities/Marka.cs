@@ -12,4 +12,19 @@ namespace WebStore.Domain.Entities
         public string Name { get; set; }
         public bool Main { get; set; }
     }
+    public class MarkaConfiguration : EntityTypeConfiguration<Marka>
+    {
+        public MarkaConfiguration()
+        {
+            HasKey(x => x.Id);
+
+            Property(x => x.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
+                .IsRequired();
+
+            Property(x => x.Name)
+                .HasMaxLength(25)
+                .IsRequired();
+        }
+    }
 }
