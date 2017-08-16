@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace WebStore.Domain.Entities
 {
-   public class Marka
+   public class Mark
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public bool Main { get; set; }
     }
-    public class MarkaConfiguration : EntityTypeConfiguration<Marka>
+    public class MarkConfiguration : EntityTypeConfiguration<Mark>
     {
-        public MarkaConfiguration()
+        public MarkConfiguration()
         {
             HasKey(x => x.Id);
 
