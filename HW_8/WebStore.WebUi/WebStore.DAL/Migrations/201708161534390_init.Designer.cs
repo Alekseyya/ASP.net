@@ -13,7 +13,7 @@ namespace WebStore.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201708030005307_init"; }
+            get { return "201708161534390_init"; }
         }
         
         string IMigrationMetadata.Source

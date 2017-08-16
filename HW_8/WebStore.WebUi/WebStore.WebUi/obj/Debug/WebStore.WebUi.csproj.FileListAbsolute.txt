@@ -1,4 +1,3 @@
-c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.WebUi\obj\Debug\WebStore.WebUi.csprojResolveAssemblyReference.cache
 c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.WebUi\bin\ApplicationInsights.config
 c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.WebUi\bin\roslyn\csc.exe
 c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.WebUi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll

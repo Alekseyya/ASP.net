@@ -45,8 +45,7 @@ namespace WebStore.DAL.Migrations
             //    new OrderDetails { Id = 2, OrderId = 1, ProductId = 2, Quantity = 5 },
             //    new OrderDetails { Id = 3, OrderId = 2, ProductId = 1, Quantity = 6 }
             //);
-
-            //context.Marks.AddOrUpdate(u)
+			//context.Marks.AddOrUpdate(u)
             //context.SaveChanges();
         }
     }
