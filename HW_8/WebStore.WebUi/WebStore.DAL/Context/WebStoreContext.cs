@@ -22,16 +22,30 @@ namespace WebStore.DAL.Context
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetails> OrderDetails { get; set; }
 
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Mark> Marks { get; set; }
+        public DbSet<Modification> Modifications { get; set; }
+        public DbSet<Photo> Photos { get; set; }
+        public DbSet<Model> Models { get; set; }
+        public DbSet<Variant> Variants { get; set; }
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new ProductConfiguration());
-            modelBuilder.Configurations.Add(new CategoryConfiguration());
-            modelBuilder.Configurations.Add(new GroupConfiguration());
-            modelBuilder.Configurations.Add(new UserConfiguration());
-            modelBuilder.Configurations.Add(new OrderDetailsConfiguration());
-            modelBuilder.Configurations.Add(new OrderConfiguration());
+            //modelBuilder.Configurations.Add(new ProductConfiguration());
+            //modelBuilder.Configurations.Add(new CategoryConfiguration());
+            //modelBuilder.Configurations.Add(new GroupConfiguration());
+            //modelBuilder.Configurations.Add(new UserConfiguration());
+            //modelBuilder.Configurations.Add(new OrderDetailsConfiguration());
+            //modelBuilder.Configurations.Add(new OrderConfiguration());
+
+            modelBuilder.Configurations.Add(new ItemConfiguration());
+            modelBuilder.Configurations.Add(new MarkConfiguration());
+            modelBuilder.Configurations.Add(new ModelConfiguration());
+            modelBuilder.Configurations.Add(new ModificationConfiguration());
+            modelBuilder.Configurations.Add(new PhotoConfiguration());
+            modelBuilder.Configurations.Add(new VariantConfiguration());
         }
 
         public class DatabaseInitializer
