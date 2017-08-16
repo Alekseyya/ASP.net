@@ -5,6 +5,5 @@ c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Domain\bin\Debug\EntityF
 c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Domain\bin\Debug\EntityFramework.SqlServer.dll
 c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Domain\bin\Debug\EntityFramework.xml
 c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Domain\bin\Debug\EntityFramework.SqlServer.xml
-c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Domain\obj\Debug\WebStore.Domain.csprojResolveAssemblyReference.cache
 c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Domain\obj\Debug\WebStore.Domain.dll
 c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.Domain\obj\Debug\WebStore.Domain.pdb

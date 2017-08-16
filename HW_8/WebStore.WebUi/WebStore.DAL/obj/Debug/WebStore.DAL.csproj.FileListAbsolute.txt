@@ -10,5 +10,5 @@ c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.DAL\bin\Debug\EntityFram
 c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.DAL\obj\Debug\WebStore.DAL.csprojResolveAssemblyReference.cache
 c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.DAL\obj\Debug\WebStore.DAL.dll
 c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.DAL\obj\Debug\WebStore.DAL.pdb
-c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.DAL\obj\Debug\WebStore.DAL.Migrations.init.resources
-c:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.DAL\obj\Debug\WebStore.DAL.csproj.GenerateResource.Cache
+C:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.DAL\obj\Debug\WebStore.DAL.Migrations.init.resources
+C:\Work\Geekbrains\ASP.net\HW_8\WebStore.WebUi\WebStore.DAL\obj\Debug\WebStore.DAL.csproj.GenerateResource.Cache
