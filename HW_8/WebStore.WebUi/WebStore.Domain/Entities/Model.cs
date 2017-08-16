@@ -5,6 +5,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebStore.Domain.Entities;
 
 namespace WebStore.Domain.Entities
 {
@@ -12,8 +13,8 @@ namespace WebStore.Domain.Entities
     {
         public int Id { get; set; }
 
-        public int MarkaId { get; set; }
-        public Mark Mark { get; set; }
+        public int MarkId { get; set; }
+        public Marka Mark { get; set; }
 
         public string Name { get; set; }
         public string Years_Body { get; set; }
