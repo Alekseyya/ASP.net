@@ -52,13 +52,7 @@ namespace WebStore.DAL.Repositories
         public void Update(Mark item)
         {
             var mark = _context.Marks.FirstOrDefault(o => o.Id == item.Id);
-            bool isModified = false;
-
-            if (mark.Id != item.Id)
-            {
-                mark.Id = item.Id;
-                isModified = true;
-            }
+            bool isModified = false;            
 
             if (mark.Name != item.Name)
             {
