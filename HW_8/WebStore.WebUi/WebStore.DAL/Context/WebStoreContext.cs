@@ -33,12 +33,12 @@ namespace WebStore.DAL.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Configurations.Add(new ProductConfiguration());
-            //modelBuilder.Configurations.Add(new CategoryConfiguration());
-            //modelBuilder.Configurations.Add(new GroupConfiguration());
-            //modelBuilder.Configurations.Add(new UserConfiguration());
-            //modelBuilder.Configurations.Add(new OrderDetailsConfiguration());
-            //modelBuilder.Configurations.Add(new OrderConfiguration());
+            modelBuilder.Configurations.Add(new ProductConfiguration());
+            modelBuilder.Configurations.Add(new CategoryConfiguration());
+            modelBuilder.Configurations.Add(new GroupConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new OrderDetailsConfiguration());
+            modelBuilder.Configurations.Add(new OrderConfiguration());
 
             modelBuilder.Configurations.Add(new ItemConfiguration());
             modelBuilder.Configurations.Add(new MarkConfiguration());
