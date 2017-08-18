@@ -21,6 +21,7 @@ namespace WebStore.DAL.Repositories
         public void Create(OrderDetails item)
         {
             _context.OrderDetails.Add(item);
+            _context.SaveChanges();
         }
 
         public void Create(List<OrderDetails> orders)
@@ -51,6 +52,7 @@ namespace WebStore.DAL.Repositories
         {
             OrderDetails orderDetails = _context.OrderDetails.FirstOrDefault(o => o.Id == id);
             _context.OrderDetails.Remove(orderDetails);
+            _context.SaveChanges();
         }
          
         public OrderDetails GetItem(int id)
