@@ -28,6 +28,7 @@ namespace WebStore.DAL.Context
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Model> Models { get; set; }
         public DbSet<Variant> Variants { get; set; }
+        
 
 
 
