@@ -32,7 +32,7 @@ namespace WebStore.DAL.Repositories
                 _context.OrderDetails.Remove(item);
             }           
             _context.Orders.Remove(order);
-
+            _context.SaveChanges();
         }
 
         public Order GetItem(int id)
