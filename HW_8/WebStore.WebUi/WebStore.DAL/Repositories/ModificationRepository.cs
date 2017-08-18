@@ -26,7 +26,7 @@ namespace WebStore.DAL.Repositories
         public void Delete(int id)
         {
             Modification modification = _context.Modifications.FirstOrDefault(o => o.Id == id);
-            var variants = _context.Variants.Where(o => o.Id == modification.Id);
+            var variants = _context.Variants.Where(o => o.ModificationId == modification.Id);
             foreach (var variant in variants)
             {
                 _context.Variants.Remove(variant);
