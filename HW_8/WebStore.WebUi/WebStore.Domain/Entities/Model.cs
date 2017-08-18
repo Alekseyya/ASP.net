@@ -21,7 +21,7 @@ namespace WebStore.Domain.Entities
         public int Start { get; set; }
         public int End { get; set; }
         public string TecDoc { get; set; }
-        public int PhotoId { get; set; }
+        public int? PhotoId { get; set; }
         public Photo Photo { get; set; }
 
         public bool Main { get; set; }
@@ -53,6 +53,8 @@ namespace WebStore.Domain.Entities
 
             Property(x => x.TecDoc)
                .IsRequired();
+
+            Property(x => x.PhotoId);
 
             HasRequired(x => x.Mark);//[ForeignKey]
             HasRequired(x => x.Photo);
